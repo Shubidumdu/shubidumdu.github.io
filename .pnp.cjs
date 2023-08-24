@@ -34,6 +34,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["autoprefixer", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:10.4.15"],\
             ["eslint", "npm:8.47.0"],\
             ["eslint-config-next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
+            ["front-matter", "npm:4.0.2"],\
+            ["marked", "npm:7.0.4"],\
             ["next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["postcss", "npm:8.4.28"],\
             ["react", "npm:18.2.0"],\
@@ -729,6 +731,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["argparse", [\
+        ["npm:1.0.10", {\
+          "packageLocation": "./.yarn/cache/argparse-npm-1.0.10-528934e59d-7ca6e45583.zip/node_modules/argparse/",\
+          "packageDependencies": [\
+            ["argparse", "npm:1.0.10"],\
+            ["sprintf-js", "npm:1.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:2.0.1", {\
           "packageLocation": "./.yarn/cache/argparse-npm-2.0.1-faff7999e6-83644b5649.zip/node_modules/argparse/",\
           "packageDependencies": [\
@@ -1296,6 +1306,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["autoprefixer", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:10.4.15"],\
             ["eslint", "npm:8.47.0"],\
             ["eslint-config-next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
+            ["front-matter", "npm:4.0.2"],\
+            ["marked", "npm:7.0.4"],\
             ["next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["postcss", "npm:8.4.28"],\
             ["react", "npm:18.2.0"],\
@@ -1916,6 +1928,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["esprima", [\
+        ["npm:4.0.1", {\
+          "packageLocation": "./.yarn/cache/esprima-npm-4.0.1-1084e98778-b45bc805a6.zip/node_modules/esprima/",\
+          "packageDependencies": [\
+            ["esprima", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["esquery", [\
         ["npm:1.5.0", {\
           "packageLocation": "./.yarn/cache/esquery-npm-1.5.0-d8f8a06879-aefb0d2596.zip/node_modules/esquery/",\
@@ -2091,6 +2112,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/fraction.js-npm-4.2.1-c697afb8d6-94cc9844bf.zip/node_modules/fraction.js/",\
           "packageDependencies": [\
             ["fraction.js", "npm:4.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["front-matter", [\
+        ["npm:4.0.2", {\
+          "packageLocation": "./.yarn/cache/front-matter-npm-4.0.2-e1cc0efa69-a5b4c36d75.zip/node_modules/front-matter/",\
+          "packageDependencies": [\
+            ["front-matter", "npm:4.0.2"],\
+            ["js-yaml", "npm:3.14.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2900,6 +2931,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["js-yaml", [\
+        ["npm:3.14.1", {\
+          "packageLocation": "./.yarn/cache/js-yaml-npm-3.14.1-b968c6095e-bef146085f.zip/node_modules/js-yaml/",\
+          "packageDependencies": [\
+            ["js-yaml", "npm:3.14.1"],\
+            ["argparse", "npm:1.0.10"],\
+            ["esprima", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:4.1.0", {\
           "packageLocation": "./.yarn/cache/js-yaml-npm-4.1.0-3606f32312-c7830dfd45.zip/node_modules/js-yaml/",\
           "packageDependencies": [\
@@ -3071,6 +3111,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["promise-retry", "npm:2.0.1"],\
             ["socks-proxy-agent", "npm:7.0.0"],\
             ["ssri", "npm:10.0.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["marked", [\
+        ["npm:7.0.4", {\
+          "packageLocation": "./.yarn/cache/marked-npm-7.0.4-d6e7a89f55-e69cc5635d.zip/node_modules/marked/",\
+          "packageDependencies": [\
+            ["marked", "npm:7.0.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4213,6 +4262,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/source-map-js-npm-1.0.2-ee4f9f9b30-c049a7fc4d.zip/node_modules/source-map-js/",\
           "packageDependencies": [\
             ["source-map-js", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["sprintf-js", [\
+        ["npm:1.0.3", {\
+          "packageLocation": "./.yarn/cache/sprintf-js-npm-1.0.3-73f0a322fa-19d79aec21.zip/node_modules/sprintf-js/",\
+          "packageDependencies": [\
+            ["sprintf-js", "npm:1.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
