@@ -20,7 +20,7 @@ const Post = ({ post }: PostProps) => {
           <BadgeList items={post.attributes.tags} />
         </div>
       </div>
-      <div className='markdown-body' dangerouslySetInnerHTML={{
+      <div className='markdown-body font-mono' dangerouslySetInnerHTML={{
         __html: parsedMarkDown
       }}/>
     </div>
