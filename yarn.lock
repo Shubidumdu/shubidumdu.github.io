@@ -1027,12 +1027,14 @@ __metadata:
     autoprefixer: 10.4.15
     eslint: 8.47.0
     eslint-config-next: 13.4.19
+    eslint-config-prettier: ^9.0.0
     front-matter: ^4.0.2
     marked: ^7.0.4
     next: 13.4.19
     postcss: 8.4.28
     react: 18.2.0
     react-dom: 18.2.0
+    star-markdown-css: ^0.4.2
     tailwindcss: 3.3.3
     typescript: 5.1.6
   languageName: unknown
@@ -1274,6 +1276,17 @@ __metadata:
     typescript:
       optional: true
   checksum: 2b2e527facf98326486b2ce806043f41d1f5a969405d2e546d4726462de3fdd05f720ec97d27952abacb09c34e31f3896da05c0c135e65f587376db9ddd71424
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "eslint-config-prettier@npm:9.0.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: 362e991b6cb343f79362bada2d97c202e5303e6865888918a7445c555fb75e4c078b01278e90be98aa98ae22f8597d8e93d48314bec6824f540f7efcab3ce451
   languageName: node
   linkType: hard
 
@@ -3579,6 +3592,13 @@ __metadata:
   dependencies:
     minipass: ^7.0.3
   checksum: 0a31b65f21872dea1ed3f7c200d7bc1c1b91c15e419deca14f282508ba917cbb342c08a6814c7f68ca4ca4116dd1a85da2bbf39227480e50125a1ceffeecb750
+  languageName: node
+  linkType: hard
+
+"star-markdown-css@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "star-markdown-css@npm:0.4.2"
+  checksum: d79ab8051eb0a68e37abdd94a70b7408729c32d295864c0cc395bb97204920058b2dd12b2ffcbbfa48c6317caba3638063abe92ba1a0aa8009a86b84a862054a
   languageName: node
   linkType: hard
 

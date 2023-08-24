@@ -2,7 +2,8 @@ import React from 'react'
 import fs, { readdir } from 'fs';
 import { resolve as resolvePath } from 'path';
 import fm, { type FrontMatterResult } from 'front-matter';
-import Image from 'next/image';
+import Post from '@/app/components/Post';
+import TopBar from '@/app/components/TopBar';
 
 type PageProps = {
   params: {
@@ -10,7 +11,7 @@ type PageProps = {
   }
 };
 
-type MdAttributes = {
+export type MdAttributes = {
   title: string,
   desc: string,
   image: string,
@@ -40,27 +41,12 @@ const Page = async ({
   const post = await getPost(postId);
   
   return (
-    <main className='flex flex-col min-h-full'>
-      <h1>
-        {post.attributes.title}
-      </h1>
-      <h3>
-        {post.attributes.desc}
-      </h3>
-      <h3>
-        {post.attributes.createdAt}
-      </h3>
-      <div>
-        {post.attributes.tags.map((tag) => (
-          <span key={tag}>
-            {tag}
-          </span>
-        ))}
-      </div>
-      <div className='container p-4 font-mono bg-white'>
-        {post.body}
-      </div>
-    </main>
+    <>
+      <TopBar />
+      <main className='flex flex-col min-h-full mt-16'>
+        <Post post={post} />
+      </main>
+    </>
   )
 }
 
