@@ -1,15 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 type BadgeProps = {
-  children: React.ReactNode
+  children: React.ReactNode;
 };
 
-const Badge = ({
-  children,
-}: BadgeProps) => {
+const Badge = ({ children }: BadgeProps) => {
   return (
-    <li className='rounded-lg italic text-gray-400 text-xs'>{children}</li>
-  )
-}
+    <li className="rounded-lg italic text-gray-400 text-xs">{children}</li>
+  );
+};
 
-export default Badge
+export default Badge;

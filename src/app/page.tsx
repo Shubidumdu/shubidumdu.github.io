@@ -7,8 +7,12 @@ import { MdAttributes } from './posts/[postId]/page';
 import { PostCardProps } from './components/PostCard';
 
 const getPosts = async () => {
-  const postNames = (await readdir(resolve(process.cwd(), 'src/posts'))).map((file) => file.split('.')[0]);
-  const postPaths = postNames.map((postName) => resolve(process.cwd(), `src/posts/${postName}.md`));
+  const postNames = (await readdir(resolve(process.cwd(), 'src/posts'))).map(
+    (file) => file.split('.')[0],
+  );
+  const postPaths = postNames.map((postName) =>
+    resolve(process.cwd(), `src/posts/${postName}.md`),
+  );
   const postsPromises = postPaths.map(async (postPath, index) => {
     const data = await readFile(postPath, 'utf-8');
     const content = fm<MdAttributes>(data);
@@ -20,7 +24,7 @@ const getPosts = async () => {
   });
   const posts = await Promise.all(postsPromises);
   return posts;
-}
+};
 
 export default async function Home() {
   const posts = await getPosts();
@@ -34,5 +38,5 @@ export default async function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }
