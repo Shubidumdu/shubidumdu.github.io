@@ -8,7 +8,6 @@ image: 'https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3
 createdAt: '2023-08-31'
 ---
 
----
 __Advertisement :)__
 
 - __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
@@ -115,8 +114,8 @@ Sample text here...
 
 Syntax highlighting
 
-``` js
-var foo = function (bar) {
+```javascript
+const foo = function (bar) {
   return bar++;
 };
 

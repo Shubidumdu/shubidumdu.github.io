@@ -36,12 +36,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["eslint-config-prettier", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:9.0.0"],\
             ["front-matter", "npm:4.0.2"],\
+            ["github-markdown-css", "npm:5.2.0"],\
+            ["highlight.js", "npm:11.8.0"],\
             ["marked", "npm:7.0.4"],\
+            ["marked-highlight", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4"],\
             ["next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["postcss", "npm:8.4.28"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:18.2.0"],\
-            ["star-markdown-css", "npm:0.4.2"],\
             ["tailwindcss", "npm:3.3.3"],\
             ["typescript", "patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"]\
           ],\
@@ -1310,12 +1312,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["eslint-config-prettier", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:9.0.0"],\
             ["front-matter", "npm:4.0.2"],\
+            ["github-markdown-css", "npm:5.2.0"],\
+            ["highlight.js", "npm:11.8.0"],\
             ["marked", "npm:7.0.4"],\
+            ["marked-highlight", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4"],\
             ["next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["postcss", "npm:8.4.28"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:18.2.0"],\
-            ["star-markdown-css", "npm:0.4.2"],\
             ["tailwindcss", "npm:3.3.3"],\
             ["typescript", "patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"]\
           ],\
@@ -2271,6 +2275,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["github-markdown-css", [\
+        ["npm:5.2.0", {\
+          "packageLocation": "./.yarn/cache/github-markdown-css-npm-5.2.0-9d7a43c98b-e80264cd9a.zip/node_modules/github-markdown-css/",\
+          "packageDependencies": [\
+            ["github-markdown-css", "npm:5.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["glob", [\
         ["npm:10.3.3", {\
           "packageLocation": "./.yarn/cache/glob-npm-10.3.3-2d9abea8c7-29190d3291.zip/node_modules/glob/",\
@@ -2485,6 +2498,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/has-unicode-npm-2.0.1-893adb4747-1eab07a743.zip/node_modules/has-unicode/",\
           "packageDependencies": [\
             ["has-unicode", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["highlight.js", [\
+        ["npm:11.8.0", {\
+          "packageLocation": "./.yarn/cache/highlight.js-npm-11.8.0-6ff1e42749-d2578a57ae.zip/node_modules/highlight.js/",\
+          "packageDependencies": [\
+            ["highlight.js", "npm:11.8.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3146,6 +3168,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/marked-npm-7.0.4-d6e7a89f55-e69cc5635d.zip/node_modules/marked/",\
           "packageDependencies": [\
             ["marked", "npm:7.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["marked-highlight", [\
+        ["npm:2.0.4", {\
+          "packageLocation": "./.yarn/cache/marked-highlight-npm-2.0.4-1fcbe149d8-3f0c26c73a.zip/node_modules/marked-highlight/",\
+          "packageDependencies": [\
+            ["marked-highlight", "npm:2.0.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4", {\
+          "packageLocation": "./.yarn/__virtual__/marked-highlight-virtual-385d46f0df/0/cache/marked-highlight-npm-2.0.4-1fcbe149d8-3f0c26c73a.zip/node_modules/marked-highlight/",\
+          "packageDependencies": [\
+            ["marked-highlight", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4"],\
+            ["@types/marked", null],\
+            ["marked", "npm:7.0.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/marked",\
+            "marked"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4307,15 +4351,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["ssri", "npm:10.0.5"],\
             ["minipass", "npm:7.0.3"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["star-markdown-css", [\
-        ["npm:0.4.2", {\
-          "packageLocation": "./.yarn/cache/star-markdown-css-npm-0.4.2-657666540e-d79ab8051e.zip/node_modules/star-markdown-css/",\
-          "packageDependencies": [\
-            ["star-markdown-css", "npm:0.4.2"]\
           ],\
           "linkType": "HARD"\
         }]\

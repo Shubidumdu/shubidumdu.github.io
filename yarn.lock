@@ -1029,12 +1029,14 @@ __metadata:
     eslint-config-next: 13.4.19
     eslint-config-prettier: ^9.0.0
     front-matter: ^4.0.2
+    github-markdown-css: ^5.2.0
+    highlight.js: ^11.8.0
     marked: ^7.0.4
+    marked-highlight: ^2.0.4
     next: 13.4.19
     postcss: 8.4.28
     react: 18.2.0
     react-dom: 18.2.0
-    star-markdown-css: ^0.4.2
     tailwindcss: 3.3.3
     typescript: 5.1.6
   languageName: unknown
@@ -1783,6 +1785,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"github-markdown-css@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "github-markdown-css@npm:5.2.0"
+  checksum: e80264cd9a6d9c646b140cb6a70d2eb2fa28b58820eb03d118184811a4e3b4727a3aef4070f1b6db9f3bc507dc80d69c697a5f73bbc494384c8168fa02bdbbfd
+  languageName: node
+  linkType: hard
+
 "glob-parent@npm:^5.1.2, glob-parent@npm:~5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
@@ -1979,6 +1988,13 @@ __metadata:
   dependencies:
     function-bind: ^1.1.1
   checksum: b9ad53d53be4af90ce5d1c38331e712522417d017d5ef1ebd0507e07c2fbad8686fffb8e12ddecd4c39ca9b9b47431afbb975b8abf7f3c3b82c98e9aad052792
+  languageName: node
+  linkType: hard
+
+"highlight.js@npm:^11.8.0":
+  version: 11.8.0
+  resolution: "highlight.js@npm:11.8.0"
+  checksum: d2578a57aee7315946ff19379053fd0a28b127baabf7617ab1d28d62cdc4eaf3d75053569cb8479a5afdc7a68f1ba9a6c1d612d8ae399b4b9aa43093b4fb6831
   languageName: node
   linkType: hard
 
@@ -2557,6 +2573,15 @@ __metadata:
     socks-proxy-agent: ^7.0.0
     ssri: ^10.0.0
   checksum: 7268bf274a0f6dcf0343829489a4506603ff34bd0649c12058753900b0eb29191dce5dba12680719a5d0a983d3e57810f594a12f3c18494e93a1fbc6348a4540
+  languageName: node
+  linkType: hard
+
+"marked-highlight@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "marked-highlight@npm:2.0.4"
+  peerDependencies:
+    marked: ^4 || ^5 || ^6 || ^7
+  checksum: 3f0c26c73a2894642c9b2da876dd58d2ab4e41cb82c90d181d4ad34f14503a9994c9e52e638d5bb853f2ba365953b475e14c61109d52e7cc299fbf6b2dbe83de
   languageName: node
   linkType: hard
 
@@ -3592,13 +3617,6 @@ __metadata:
   dependencies:
     minipass: ^7.0.3
   checksum: 0a31b65f21872dea1ed3f7c200d7bc1c1b91c15e419deca14f282508ba917cbb342c08a6814c7f68ca4ca4116dd1a85da2bbf39227480e50125a1ceffeecb750
-  languageName: node
-  linkType: hard
-
-"star-markdown-css@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "star-markdown-css@npm:0.4.2"
-  checksum: d79ab8051eb0a68e37abdd94a70b7408729c32d295864c0cc395bb97204920058b2dd12b2ffcbbfa48c6317caba3638063abe92ba1a0aa8009a86b84a862054a
   languageName: node
   linkType: hard
 

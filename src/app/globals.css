@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'star-markdown-css';
+@import 'github-markdown-css';
 
 @font-face {
   font-family: 'MonoplexKR';
@@ -15,11 +15,6 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-nerd@1.0/MonoplexKRNerd-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
-}
-
-.markdown-body strong {
-  font-family: 'MonoplexKR', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';
-  font-weight: 700;
 }
 
 :root {

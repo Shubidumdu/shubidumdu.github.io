@@ -1,15 +1,38 @@
 import { FrontMatterResult } from 'front-matter';
 import React from 'react';
 import { MdAttributes } from '../posts/[postId]/page';
-import { marked } from 'marked';
+import { Marked } from 'marked';
 import BadgeList from './BadgeList';
+import { markedHighlight } from 'marked-highlight';
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+import plaintext from 'highlight.js/lib/languages/plaintext';
+import typescript from 'highlight.js/lib/languages/typescript';
+import glsl from 'highlight.js/lib/languages/glsl';
+import 'highlight.js/styles/github.css';
+
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('plaintext', plaintext);
+hljs.registerLanguage('typescript', typescript);
+hljs.registerLanguage('glsl', glsl);
 
 type PostProps = {
   post: FrontMatterResult<MdAttributes>;
 };
 
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight: (code, lang) => {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
+    },
+  }),
+);
+
 const Post = ({ post }: PostProps) => {
-  const parsedMarkDown = marked(post.body);
+  const parsedMarkDown = marked.parse(post.body);
+  if (!parsedMarkDown) return null;
 
   return (
     <div className="container m-auto rounded max-sm:rounded-none p-4 font-mono bg-white shadow">
@@ -20,7 +43,7 @@ const Post = ({ post }: PostProps) => {
         </div>
       </div>
       <div
-        className="markdown-body font-mono"
+        className="markdown-body font-mono pt-4"
         dangerouslySetInnerHTML={{
           __html: parsedMarkDown,
         }}
