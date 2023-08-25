@@ -10,9 +10,21 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'MonoplexKR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_Monoplex-nerd@1.0/MonoplexKRNerd-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.markdown-body strong {
+  font-family: 'MonoplexKR', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';
+  font-weight: 700;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 230, 240;
   --background-end-rgb: 225, 245, 255;
   min-height: 100%;
 }

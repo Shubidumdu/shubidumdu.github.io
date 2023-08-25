@@ -8,14 +8,234 @@ image: 'https://www.freecodecamp.org/news/content/images/2022/09/jonatan-pie-3l3
 createdAt: '2023-08-31'
 ---
 
-## Something Something Something
+---
+__Advertisement :)__
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at euismod arcu, eu blandit diam. Sed mollis interdum felis, in finibus velit consectetur eu. Donec sed lorem dolor. Phasellus vitae hendrerit mauris, eu blandit arcu. Vestibulum nibh orci, tempus quis sagittis et, eleifend ut magna. Etiam condimentum turpis et diam volutpat, ornare porta libero accumsan. Nullam lorem urna, ultrices sit amet felis in, ultrices ornare leo. Vestibulum non placerat risus. Nullam id mauris imperdiet, porttitor lacus id, mattis diam.
+- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
+  resize in browser.
+- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
+  i18n with plurals support and easy syntax.
 
-Quisque interdum sollicitudin felis sed bibendum. Nullam in lorem leo. Nunc posuere, lacus id gravida commodo, nunc velit euismod velit, vel tincidunt justo augue non eros. Ut tempus at nisl id mattis. Etiam bibendum id ante ac dignissim. Mauris sagittis pellentesque nisl ac rhoncus. Nunc porttitor porttitor ligula nec accumsan. Quisque quis molestie libero.
+You will like those projects!
 
-Donec non semper lectus, ac luctus augue. Ut pretium sapien eget ligula maximus tempor. Proin et leo vel turpis pharetra tempus quis a urna. Duis et tincidunt tellus. Praesent et ligula ultrices diam volutpat ullamcorper. Donec suscipit nisl a libero feugiat volutpat. Sed condimentum sollicitudin felis, et varius mi. Quisque nisl metus, feugiat nec sagittis vitae, sodales eget lacus. Pellentesque viverra, nisi eu pharetra lacinia, nisi massa pulvinar elit, vel iaculis arcu enim vitae enim. Donec dapibus est ut mauris facilisis, in blandit est tincidunt. Nunc porta dignissim nisl. Fusce blandit mattis dapibus. Proin ullamcorper magna ut erat viverra auctor. Vestibulum pharetra elementum accumsan.
+---
 
-Morbi nisl ligula, dignissim quis rutrum feugiat, euismod ut eros. Phasellus ante urna, pellentesque eu dolor non, bibendum pretium risus. Proin facilisis lacus eu porttitor aliquet. Nulla vehicula ipsum ut orci venenatis fringilla. In a rhoncus augue. Donec venenatis bibendum metus ac pellentesque. Nullam sed tincidunt purus. Integer quis purus non mi efficitur dictum molestie nec mi. Cras vitae neque lobortis sapien ornare tempus. Nulla facilisi.
+# h1 Heading 8-)
 
-Quisque arcu dui, consectetur sit amet massa vitae, sollicitudin cursus nisi. In hac habitasse platea dictumst. Quisque dictum varius nulla et hendrerit. Integer eget viverra mauris. Nam tempor ultricies ipsum, in tempor tortor tempor non. Donec nunc massa, pulvinar sit amet lectus nec, accumsan tincidunt elit. Donec nunc augue, bibendum vitae mi vitae, luctus egestas urna. Nunc commodo ac dui et accumsan. Nullam est mauris, malesuada et molestie at, vulputate at risus. In faucibus ultrices justo sit amet ultricies. In eu rhoncus leo. Suspendisse mattis semper urna, nec vulputate purus auctor eu. Quisque cursus velit risus, a egestas augue malesuada vel. Proin non arcu ullamcorper, rhoncus urna sed, rhoncus nisi.
+## h2 Heading
+
+### h3 Heading
+
+#### h4 Heading
+
+##### h5 Heading
+
+###### h6 Heading
+
+## Horizontal Rules
+
+___
+
+---
+
+***
+
+## Typographic replacements
+
+Enable typographer option to see result.
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+test.. test... test..... test?..... test!....
+
+!!!!!! ???? ,,  -- ---
+
+"Smartypants, double quotes" and 'single quotes'
+
+## Emphasis
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+*This is italic text*
+
+~~Strikethrough~~
+
+## Blockquotes
+
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+## Lists
+
+Unordered
+
+- Create a list by starting a line with `+`, `-`, or `*`
+- Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    - Ac tristique libero volutpat at
+    - Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
+- Very easy!
+
+Ordered
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+1. You can use sequential numbers...
+1. ...or keep all the numbers as `1.`
+
+Start numbering with offset:
+
+57. foo
+1. bar
+
+## Code
+
+Inline `code`
+
+Indented code
+
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+
+Block code "fences"
+
+```
+Sample text here...
+```
+
+Syntax highlighting
+
+``` js
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+Right aligned columns
+
+| Option | Description |
+| ------:| -----------:|
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+## Links
+
+[link text](http://dev.nodeca.com)
+
+[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+
+Autoconverted link <https://github.com/nodeca/pica> (enable linkify to see)
+
+## Images
+
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+
+## Plugins
+
+The killer feature of `markdown-it` is very effective support of
+[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+
+### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+
+> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
+>
+> Shortcuts (emoticons): :-) :-( 8-) ;)
+
+see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
+
+### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
+
+- 19^th^
+- H~2~O
+
+### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+
+++Inserted text++
+
+### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+
+==Marked text==
+
+### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+
+Footnote 1 link[^first].
+
+Footnote 2 link[^second].
+
+Inline footnote^[Text of inline footnote] definition.
+
+Duplicated footnote reference[^second].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+
+### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
+
+Term 1
+
+:   Definition 1
+with lazy continuation.
+
+Term 2 with *inline markup*
+
+:   Definition 2
+
+        { some code, part of Definition 2 }
+
+    Third paragraph of definition 2.
+
+*Compact style:*
+
+Term 1
+  ~ Definition 1
+
+Term 2
+  ~ Definition 2a
+  ~ Definition 2b
+
+### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
+
+This is HTML abbreviation example.
+
+It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
+
+*[HTML]: Hyper Text Markup Language
+
+### [Custom containers](https://github.com/markdown-it/markdown-it-container)
+
+::: warning
+*here be dragons*
+:::
