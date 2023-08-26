@@ -1,6 +1,6 @@
 ---
-title: BabylonJS에서 1BIT 셰이더를 구현해보자
-desc: 1-BIT JAM에 참여하기 위해, 단 두가지 컬러만을 사용하도록 1BIT 셰이더를 BabylonJS에서 직접 구현해본다.
+title: BabylonJS에서의 1BIT 셰이더 구현
+desc: 단 두가지 컬러만을 사용하는 1BIT 셰이더를 BabylonJS에서 직접 구현해본다.
 createdAt: '2023-08-26'
 image: /make-1bit-shader/thumbnail.png
 tags:
@@ -11,7 +11,7 @@ tags:
 
 ## 들어가기
 
-최근 [itch.io](https://itch.io/)에서 열린 여러 잼 중 하나인 [1-BIT JAM](https://itch.io/jam/1-bit-jam-wow)에 참여했다. 여러 잼 중에서도 이 잼을 선택했던 것은, 스스로 단 두가지 컬러만을 사용해야 한다는 제약 속에 그래픽적으로 오히려 다양한 시도를 할 수 있을 것이라는 생각이 들었기 때문이다. 또, 그 동안 BabylonJS와 GLSL을 공부하면서, 직접 만든 셰이더를 적용하여 3D 게임을 구현해볼 수 있는 좋은 기회라고 보았다.
+최근 [itch.io](https://itch.io/)에서 열린 여러 잼 중 하나인 [1-BIT JAM](https://itch.io/jam/1-bit-jam-wow)에 참여했다. 여러 잼 중에서도 이 잼을 선택했던 것은 스스로 단 두가지 컬러만을 사용해야 한다는 제약 속에 그래픽적으로 오히려 다양한 시도를 할 수 있을 것이라는 생각이 들었기 때문이다. 또, 그 동안 공부했던 것을 이용해 직접 만든 셰이더로 3D 게임을 구현해볼 수 있는 좋은 기회라고 보았다.
 
 어찌됐건 결국, 단 두가지 색상을 사용하면서도 그럴듯한 3D 그래픽을 그려내야 하는데, 사실 단박에 떠오른 예시가 하나 있었다.
 
@@ -302,6 +302,6 @@ if(edgeDepth>depthThreshold){
 
 완성된 내용은 [여기](https://shubidumdu.github.io/sketchbook/pages/1bit-shader/)에서 확인해볼 수 있다. 이용자가 임의로 메인/서브 컬러를 지정하여 꽤 독특한 느낌도 내볼 수 있다.
 
-결론적으로 여기에서 만들어놓은 셰이더를 바탕으로 1-BIT JAM에 [LIGHTS OUT, SHOT DOWN](https://itch.io/jam/1-bit-jam-wow/rate/2224187)을 만들어 제출했고, 개인적으로 꽤 만족스러운 과정과 결과였다.
+결론적으로 여기에서 만들어놓은 셰이더를 바탕으로 1-BIT JAM에 [LIGHTS OUT, SHOT DOWN](https://itch.io/jam/1-bit-jam-wow/rate/2224187)을 만들어 제출했고, 개인적으로 꽤 만족스러운 과정과 결과를 얻었다는 생각이 든다.
 
 <iframe frameborder="0" src="https://itch.io/embed/2224187?link_color=000000" width="552" height="167"><a href="https://shubidumdu.itch.io/lights-out-shot-down">LIGHTS OUT, SHOT DOWN by Shubidumdu</a></iframe><br>
