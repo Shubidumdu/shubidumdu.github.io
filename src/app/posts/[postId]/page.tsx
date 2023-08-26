@@ -4,6 +4,7 @@ import { resolve as resolvePath } from 'path';
 import fm, { type FrontMatterResult } from 'front-matter';
 import Post from '@/app/components/Post';
 import TopBar from '@/app/components/TopBar';
+import { Metadata } from 'next';
 
 type PageProps = {
   params: {
@@ -32,7 +33,42 @@ export const generateStaticParams = () =>
     });
   });
 
-const BASE_URL = process.env.BASE_URL || '';
+const BASE_URL = process.env.BASE || '';
+
+export const generateMetadata = async ({
+  params,
+}: PageProps): Promise<Metadata> => {
+  const { postId } = params;
+  const post = await getPost(postId);
+
+  return {
+    title: post.attributes.title,
+    description: post.attributes.desc,
+    authors: [
+      {
+        name: 'Shubidumdu',
+        url: 'https://github.com/Shubidumdu',
+      },
+    ],
+    colorScheme: 'light',
+    keywords: [
+      'Shubidumdu',
+      'Devlog',
+      'Blog',
+      '개발 블로그',
+      '개발',
+      '블로그',
+      ...post.attributes.tags,
+    ],
+    openGraph: {
+      title: post.attributes.title,
+      description: post.attributes.desc,
+      type: 'article',
+      countryName: 'KR',
+      images: resolvePath(process.env.BASE || '', post.attributes.image),
+    },
+  };
+};
 
 const getPost = (postId: string) =>
   new Promise<FrontMatterResult<MdAttributes>>((resolve) => {
