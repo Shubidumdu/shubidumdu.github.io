@@ -66,7 +66,7 @@ export const generateMetadata = async ({
       description: post.attributes.desc,
       type: 'article',
       countryName: 'KR',
-      images: `${BASE_URL}/${post.attributes.image}`,
+      images: post.attributes.image,
     },
   };
 };
