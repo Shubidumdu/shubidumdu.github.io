@@ -19,11 +19,16 @@ export type MdAttributes = {
   createdAt: string;
 };
 
+type PostPageStaticParams = {
+  postId: string;
+}[];
+
 export const generateStaticParams = () =>
-  new Promise((resolve) => {
+  new Promise<PostPageStaticParams>((resolve) => {
     readdir(resolvePath(process.cwd(), 'src/posts'), (err, files) => {
       const postNames = files.map((file) => file.split('.')[0]);
-      resolve(postNames);
+      const postIds = postNames.map((postId) => ({ postId }));
+      resolve(postIds);
     });
   });
 
