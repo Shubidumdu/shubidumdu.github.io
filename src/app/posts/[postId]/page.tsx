@@ -43,8 +43,8 @@ const Page = async ({ params }: PageProps) => {
   return (
     <>
       <TopBar />
-      <main className="flex flex-col min-h-full mt-16 mb-32">
-        <Post post={post} />
+      <main className="flex flex-col min-h-full mt-16 mb-32 sm:p-4">
+        <Post post={post} base={`/${postId}/`} />
       </main>
     </>
   );

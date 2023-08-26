@@ -1032,6 +1032,7 @@ __metadata:
     github-markdown-css: ^5.2.0
     highlight.js: ^11.8.0
     marked: ^7.0.4
+    marked-base-url: ^1.0.6
     marked-highlight: ^2.0.4
     next: 13.4.19
     postcss: 8.4.28
@@ -2573,6 +2574,15 @@ __metadata:
     socks-proxy-agent: ^7.0.0
     ssri: ^10.0.0
   checksum: 7268bf274a0f6dcf0343829489a4506603ff34bd0649c12058753900b0eb29191dce5dba12680719a5d0a983d3e57810f594a12f3c18494e93a1fbc6348a4540
+  languageName: node
+  linkType: hard
+
+"marked-base-url@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "marked-base-url@npm:1.0.6"
+  peerDependencies:
+    marked: ^4 || ^5 || ^6 || ^7
+  checksum: 87b21a85925bdf3467ae64ed66669ec8f4f58e7374e6dac101ab7ba4663e7a8d9730ee25e432eaaf59f40b4a7605ca7737fbac4ad2963c20de3c3313bde089be
   languageName: node
   linkType: hard
 

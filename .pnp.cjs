@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["github-markdown-css", "npm:5.2.0"],\
             ["highlight.js", "npm:11.8.0"],\
             ["marked", "npm:7.0.4"],\
+            ["marked-base-url", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:1.0.6"],\
             ["marked-highlight", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4"],\
             ["next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["postcss", "npm:8.4.28"],\
@@ -1315,6 +1316,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["github-markdown-css", "npm:5.2.0"],\
             ["highlight.js", "npm:11.8.0"],\
             ["marked", "npm:7.0.4"],\
+            ["marked-base-url", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:1.0.6"],\
             ["marked-highlight", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4"],\
             ["next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["postcss", "npm:8.4.28"],\
@@ -3168,6 +3170,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/marked-npm-7.0.4-d6e7a89f55-e69cc5635d.zip/node_modules/marked/",\
           "packageDependencies": [\
             ["marked", "npm:7.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["marked-base-url", [\
+        ["npm:1.0.6", {\
+          "packageLocation": "./.yarn/cache/marked-base-url-npm-1.0.6-3802606a37-87b21a8592.zip/node_modules/marked-base-url/",\
+          "packageDependencies": [\
+            ["marked-base-url", "npm:1.0.6"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:1.0.6", {\
+          "packageLocation": "./.yarn/__virtual__/marked-base-url-virtual-8b5a7e8139/0/cache/marked-base-url-npm-1.0.6-3802606a37-87b21a8592.zip/node_modules/marked-base-url/",\
+          "packageDependencies": [\
+            ["marked-base-url", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:1.0.6"],\
+            ["@types/marked", null],\
+            ["marked", "npm:7.0.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/marked",\
+            "marked"\
           ],\
           "linkType": "HARD"\
         }]\

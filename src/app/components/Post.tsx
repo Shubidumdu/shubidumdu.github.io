@@ -10,6 +10,7 @@ import plaintext from 'highlight.js/lib/languages/plaintext';
 import typescript from 'highlight.js/lib/languages/typescript';
 import glsl from 'highlight.js/lib/languages/glsl';
 import 'highlight.js/styles/github.css';
+import { baseUrl } from 'marked-base-url';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('plaintext', plaintext);
@@ -18,6 +19,7 @@ hljs.registerLanguage('glsl', glsl);
 
 type PostProps = {
   post: FrontMatterResult<MdAttributes>;
+  base: string;
 };
 
 const marked = new Marked(
@@ -30,8 +32,17 @@ const marked = new Marked(
   }),
 );
 
-const Post = ({ post }: PostProps) => {
-  const parsedMarkDown = marked.parse(post.body);
+const parse = (markdown: string, base: string) => {
+  marked.use(baseUrl(base));
+  const parsedMarkDown = marked.parse(markdown);
+  return parsedMarkDown;
+};
+
+const Post = ({ post, base }: PostProps) => {
+  const parsedMarkDown = parse(
+    `# ${post.attributes.title}\n${post.body}`,
+    base,
+  );
   if (!parsedMarkDown) return null;
 
   return (

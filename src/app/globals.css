@@ -17,6 +17,13 @@
     font-style: normal;
 }
 
+@media (min-width: 1024px) {
+  .markdown-body img {
+    max-width: 50%;
+    margin: auto;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 230, 240;
