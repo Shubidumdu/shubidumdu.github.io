@@ -65,7 +65,7 @@ export const generateMetadata = async ({
       description: post.attributes.desc,
       type: 'article',
       countryName: 'KR',
-      images: resolvePath(process.env.BASE || '', post.attributes.image),
+      images: `${BASE_URL}/${post.attributes.image}`,
     },
   };
 };
