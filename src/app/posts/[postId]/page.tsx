@@ -42,6 +42,7 @@ export const generateMetadata = async ({
   const post = await getPost(postId);
 
   return {
+    metadataBase: new URL('https://shubidumdu.github.io/devlog/'),
     title: post.attributes.title,
     description: post.attributes.desc,
     authors: [

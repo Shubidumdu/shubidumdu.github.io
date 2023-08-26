@@ -28,6 +28,7 @@ const getPosts = async () => {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://shubidumdu.github.io/devlog/'),
   title: "Shubidumdu's Devlog",
   description:
     'Shubidumdu의 개발 블로그입니다. 개발 중 마주친 문제 및 그에 대한 해결과, 어떤 것의 구현에 대한 과정을 기록합니다.',
