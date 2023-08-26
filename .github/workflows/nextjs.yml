@@ -74,7 +74,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Static HTML export with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} BASE_URL=/devlog next build
+        run: BASE_URL=/devlog ${{ steps.detect-package-manager.outputs.runner }} build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
