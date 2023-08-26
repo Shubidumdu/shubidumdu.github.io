@@ -2,7 +2,7 @@
 title: BabylonJS에서의 1BIT 셰이더 구현
 desc: 단 두가지 컬러만을 사용하는 1BIT 셰이더를 BabylonJS에서 직접 구현해본다.
 createdAt: '2023-08-26'
-image: /make-1bit-shader/thumbnail.png
+image: ./make-1bit-shader/thumbnail.png
 tags:
   - BabylonJS
   - GLSL
@@ -196,7 +196,7 @@ meshes.forEach((mesh) => {
 });
 ```
 
-![Alt text](image-3.png)
+![Shadow](image-3.png)
 
 ## 외곽선 넣기
 

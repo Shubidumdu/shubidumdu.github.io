@@ -32,6 +32,8 @@ export const generateStaticParams = () =>
     });
   });
 
+const BASE_URL = process.env.BASE_URL || '';
+
 const getPost = (postId: string) =>
   new Promise<FrontMatterResult<MdAttributes>>((resolve) => {
     const file = resolvePath(process.cwd(), `src/posts/${postId}.md`);
@@ -49,7 +51,7 @@ const Page = async ({ params }: PageProps) => {
     <>
       <TopBar />
       <main className="flex flex-col min-h-full mt-16 mb-32 sm:p-4">
-        <Post post={post} base={`/${postId}/`} />
+        <Post post={post} base={`${BASE_URL}/${postId}/`} />
       </main>
     </>
   );
