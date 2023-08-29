@@ -300,8 +300,18 @@ if(edgeDepth>depthThreshold){
 
 ## 마치며
 
-완성된 내용은 [여기](https://shubidumdu.github.io/sketchbook/pages/1bit-shader/)에서 확인해볼 수 있다. 이용자가 임의로 메인/서브 컬러를 지정하여 꽤 독특한 느낌도 내볼 수 있다.
+완성된 내용은 아래 또는 [여기](https://shubidumdu.github.io/sketchbook/pages/1bit-shader/)에서 확인해볼 수 있다. 이용자가 임의로 메인/서브 컬러를 지정하여 꽤 독특한 느낌도 내볼 수 있다.
+
+<iframe
+  id="Dust"
+  title="Dust"
+  width="800"
+  height="600"
+  style="margin:0 auto; max-width: 100%;"
+  src="https://shubidumdu.github.io/sketchbook/pages/1bit-shader"
+>
+</iframe><br>
 
 결론적으로 여기에서 만들어놓은 셰이더를 바탕으로 1-BIT JAM에 [LIGHTS OUT, SHOT DOWN](https://itch.io/jam/1-bit-jam-wow/rate/2224187)을 만들어 제출했고, 개인적으로 꽤 만족스러운 과정과 결과를 얻었다는 생각이 든다.
 
-<iframe frameborder="0" src="https://itch.io/embed/2224187?link_color=000000" width="552" height="167"><a href="https://shubidumdu.itch.io/lights-out-shot-down">LIGHTS OUT, SHOT DOWN by Shubidumdu</a></iframe><br>
+<iframe frameborder="0" src="https://itch.io/embed/2224187?link_color=000000" width="552" height="167" style="margin:0 auto; max-width: 100%;"><a href="https://shubidumdu.itch.io/lights-out-shot-down">LIGHTS OUT, SHOT DOWN by Shubidumdu</a></iframe><br>
