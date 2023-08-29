@@ -11,7 +11,7 @@ const PostCardList = ({ posts }: PostCardListProps) => {
   }
 
   return (
-    <ul className="grid grid-cols-2 max-lg:p-2 max-sm:grid-cols-1 gap-4 max-w-4xl m-auto">
+    <ul className="grid grid-cols-1 max-lg:p-2 max-sm:grid-cols-1 gap-4 max-w-4xl m-auto">
       {posts.map((post) => (
         <PostCard key={post.id} {...post} />
       ))}

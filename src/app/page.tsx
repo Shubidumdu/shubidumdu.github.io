@@ -14,6 +14,7 @@ const getPosts = async () => {
   const postPaths = postNames.map((postName) =>
     resolve(process.cwd(), `src/posts/${postName}.md`),
   );
+
   const postsPromises = postPaths.map(async (postPath, index) => {
     const data = await readFile(postPath, 'utf-8');
     const content = fm<MdAttributes>(data);
@@ -23,7 +24,12 @@ const getPosts = async () => {
     };
     return post;
   });
+
   const posts = await Promise.all(postsPromises);
+  posts.sort((a, b) => {
+    // Desc order by createdAt
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
   return posts;
 };
 
