@@ -26,8 +26,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 230, 240;
-  --background-end-rgb: 225, 245, 255;
+  --background-start-rgb: 223, 239, 254;
+  --background-end-rgb: 249, 243, 238;
   min-height: 100%;
 }
 
