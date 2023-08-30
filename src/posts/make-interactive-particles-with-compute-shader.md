@@ -15,7 +15,7 @@ WebGPU는 WebGL의 후속으로, 일종의 OpenGL API 래퍼에 가까운 형태
 
 WebGPU가 무엇이 좋은지에 대한 이야기는 [이 곳](https://developer.chrome.com/blog/webgpu-io2023/)을 찾아보도록 하고, 이번 포스트에서는 이 중 WebGPU의 컴퓨트 셰이더와 그 활용에 대해 이야기해보고자 한다.
 
-기존의 WebGL에서는 컴퓨트 셰이더가 존재하지 않았고, 때문에 보다 다양한 목적으로 GPU를 활용해야 하는 경우(GPGPU)에도, 억지로 렌더링 목적의 API를 끼워 맞추어 사용해야 했다. ([이미지 출처](https://developer.chrome.com/blog/webgpu-io2023/))
+기존의 WebGL에는 컴퓨트 셰이더가 존재하지 않았고, 때문에 보다 일반적인 목적으로 GPU를 활용해야 하는 경우(GPGPU)에도, 억지로 렌더링 목적의 API를 끼워 맞추어 사용해야 했다. ([이미지 출처](https://developer.chrome.com/blog/webgpu-io2023/))
 
 ![WebGL's GPGPU](https://wd.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/s0tVrCZEB6nmH1oF2Lob.png?auto=format&w=1600)
 
@@ -25,11 +25,11 @@ WebGPU가 무엇이 좋은지에 대한 이야기는 [이 곳](https://developer
 
 ![WebGL's Compute Shader](https://wd.imgix.net/image/vvhSqZboQoZZN9wBvoXq72wzGAf1/MoQayjLj9DVjHNX4haLo.png?auto=format&w=1600)
 
-따라서, 기존 WebGL에서 JS에서 처리하던 알고리즘을 컴퓨트 셰이더로 GPU에 포팅하는 경우, 상당히 큰 성능 향상을 기대할 수 있게 되었다. 이번 포스트에서 다루고자 하는 것이 바로 이 컴퓨트 셰이더를 사용하는 방법과, 그로 인한 성능 향상을 눈으로 확인하는 것이다.
+따라서, 기존 WebGL에서 JS에서 처리하던 알고리즘을 컴퓨트 셰이더로 GPU에 포팅할 때, 상당히 큰 성능 향상을 기대할 수 있게 되었다. 이번 포스트에서 다루고자 하는 것이 바로 이 컴퓨트 셰이더를 사용하는 방법과, 그로 인한 성능 향상을 눈으로 확인하는 것이다.
 
 ## 아주 간단한 컴퓨트 셰이더 만들기
 
-시작하기에 앞서, "아주 간단한"이라는 말은 틀렸을지도 모른다. 하는 작업은 아주 간단하지만, 그것을 구축하기 위해 많은 작업을 필요로 하는, 간단한 컴퓨터 셰이더를 하나 만들어 볼 것이다.
+시작하기에 앞서, "아주 간단한"이라는 말은 틀렸을지도 모른다. 하는 작업은 아주 간단하지만, 그것을 구축하기 위해 많은 작업을 필요로 하는, 간단한 컴퓨트 셰이더를 하나 만들어 볼 것이다.
 
 여기서 만들 컴퓨트 파이프라인의 다이어그램을 그려보자면 아래와 같은 형태가 된다. ([출처 - WebGPUFundamentals](https://webgpufundamentals.org/webgpu/lessons/webgpu-fundamentals.html))
 
@@ -64,9 +64,9 @@ const main = async () => {
 main();
 ```
 
-이제 컴퓨트 셰이더와 컴퓨트 **파이프라인**(pipeline)을 만들고, 만든 셰이더 모듈을 파이프라인에 연결한다.
+이제 컴퓨트 셰이더 모듈과 컴퓨트 **파이프라인**(pipeline)을 만들고, 만든 셰이더 모듈을 파이프라인에 연결한다.
 
-셰이더 내에 작성한 WGSL 코드는 각 실행마다 버퍼의 각 데이터에 2씩 곱해주는 역할을 하는 것이 전부다.
+셰이더 내에 작성한 WGSL 코드는 각 실행마다 버퍼의 각 데이터에 2를 곱해주는 것이 전부다.
 
 ```ts
 const module = device.createShaderModule({
@@ -93,7 +93,7 @@ const pipeline = device.createComputePipeline({
 });
 ```
 
-이제 실질적인 데이터 인풋을 넘겨주어야 하는데, 이는 **버퍼**(buffer)를 통해 이루어진다. 버퍼를 새로 생성하고, [버퍼의 용도](https://developer.mozilla.org/en-US/docs/Web/API/GPUBuffer/usage)에 맞게 적절히 `usage`를 입력해준 다음, 실질적인 데이터를 작성한다. WebGPU에서는 데이터를 주고받는 모든 경우에 TypedArray를 사용한다는 점도 유의할만한 부분이다. (ex. `Float32Array`)
+이제 실질적인 데이터 인풋을 넘겨주어야 하는데, 이는 **버퍼**(buffer)를 통해 이루어진다. 버퍼를 새로 생성하고, [버퍼의 용도](https://developer.mozilla.org/en-US/docs/Web/API/GPUBuffer/usage)에 맞게 적절히 `usage`를 입력해준 다음, 인풋이 될 데이터를 버퍼에 작성한다. WebGPU에서는 데이터를 주고받는 모든 경우에 TypedArray를 사용한다는 점도 유의할만한 부분이다. (ex. `Float32Array`)
 
 ```ts
 const workBuffer = device.createBuffer({
@@ -138,7 +138,7 @@ pass.dispatchWorkgroups(input.length);
 pass.end();
 ```
 
-사실, 이렇게 작업을 수행하고 나서의 그 결과는 JS측에서 곧바로 확인할 방법이 없다.
+이렇게 작업을 수행하고 나서의 결과는 JS 측에서 곧바로 확인할 방법이 없다.
 다시 말해, 그 결과를 받아올 결과 버퍼를 따로 마련해서, 워크 버퍼에 작성된 내용을 결과 버퍼로 복사해주어야 한다.
 
 ```ts
@@ -167,7 +167,7 @@ device.queue.submit([commandBuffer]);
 ```
 
 이제 완료된 작업을 JS측에서 확인할 수 있도록, 결과 버퍼를 매핑하고, 그 결과를 TypedArray로 변환해준다.
-결과를 CPU 측인 JS에서 사용하기 위해서는 언매핑(`unmap`)을 해주어야 한다.
+여기서 유의하는 것은, 결과 버퍼에 대한 매핑이 유지되어 있는 동안에만 `getMappedRange` 메서드로 그 결과를 CPU로 가져올 수 있다는 점이다. 만약 이를 매핑 해제(`unmap`)하고 나면, `resultBuffer`에 대해 다시 매핑을 해주어야 한다.
 
 ```ts
 await resultBuffer.mapAsync(GPUMapMode.READ);
@@ -322,7 +322,7 @@ const renderPassDescriptor = {
 
 const vertexBufferLayout: GPUVertexBufferLayout = {
   arrayStride: 8,
-  stepMode: 'instance', // 여기서 인스턴스 모드를 사용했음에 주의
+  stepMode: 'instance', // 여기서 인스턴스 모드를 사용했음에 유의
   attributes: [
     {
       format: 'float32x2' as const,
@@ -360,11 +360,11 @@ const uniformBindGroup = device.createBindGroup({
 });
 ```
 
-위에서 버텍스 버퍼에 인스턴스 모드를 사용한 이유가 무엇인지 궁금할 수 있다. 현재 버텍스 버퍼의 데이터는 각 점의 위치 정보 `position`이다. 그렇기 때문에 이 위치 정보를 통해, 유니폼의 `pointSize`, `resolution`을 통해 점을 적절하게 그려줘야 한다. (이에 대한 세부적인 내용은 WGSL 코드인 `renderShader`에 작성되어 있다.)
+위에서 버텍스 버퍼에 인스턴스 모드를 사용한 부분에 유의할 필요가 있다. 현재 버텍스 버퍼의 데이터는 각 점의 위치 정보 `position`이다. 그렇기 때문에 이 위치 정보를 통해, 유니폼의 `pointSize`, `resolution`을 통해 점을 적절하게 그려줘야 한다. (이에 대한 세부적인 내용은 WGSL 코드인 `renderShader`에 작성되어 있다.)
 
-헌데 기본값인 `vertex` 모드에서는 세 개의 정점을 전달할 때마다 삼각형을 그리게 될 것이므로, 현재 작성된 셰이더 코드 및 구현하고자 하는 내용에 부적합하다.
+기본값인 `vertex` 모드에서는 세 개의 정점을 전달할 때마다 삼각형을 그리게 될 것이므로, 현재 작성된 셰이더 코드 및 구현하고자 하는 내용에 부적합하다. 따라서 `instance` 모드를 활용한다.
 
-마찬가지로, 점을 그리는 데에 인덱스 버퍼를 활용하게 되므로, 이 또한 구성해준다.
+점을 그릴 때 메모리 관점에서 이득을 얻기 위해 인덱스 버퍼를 활용할 것이므로, 이 또한 구성해준다.
 
 ```ts
 const indexData = new Uint32Array(
@@ -386,7 +386,7 @@ const indexBuffer = device.createBuffer({
 device.queue.writeBuffer(indexBuffer, 0, indexData);
 ```
 
-셰이더 코드 상으로 유니폼으로 `resolution`과 `pointSize`도 사용하게 될 것이므로, 이에 대한 버퍼도 생성해준다.
+셰이더 코드 상으로 **유니폼**(uniform)으로 `resolution`과 `pointSize`도 사용하게 될 것이므로, 이에 대한 버퍼도 생성해준다.
 
 ```ts
 const UNIFORM_BUFFER_SIZE =
@@ -409,11 +409,11 @@ const uniformBindGroup = device.createBindGroup({
 });
 ```
 
-이제 `requestAnimationFrame`으로 매 애니메이션 프레임마다 GPU에게 컴퓨트 파이프라인을 통한 연산 명령을 전달하고, 렌더 파이프라인으로 그 결과에 대한 그리기를 요청한다.
+이제 `requestAnimationFrame`으로 매 애니메이션 프레임마다 GPU에 컴퓨트 파이프라인을 통한 연산 명령을 전달하고, 렌더 파이프라인으로 그 결과에 대한 그리기를 요청한다.
 
 `resizeCanvasToDisplaySize`는 매 프레임마다 현재 브라우저의 `innerWidth`, `innerHeight`를 감지하여 캔버스의 크기를 리사이징해주는 함수다.
 
-코드를 간결하게 하기 위해, 명령 인코더와 컴퓨트/렌더 패스에 따로 레이블을 추가하지 않았지만, 실제로는 추가하는 것을 아주 권장한다.
+코드를 간결하게 하기 위해, 명령 인코더와 컴퓨트/렌더 패스에 따로 레이블(label)을 추가하지 않았지만, 실제로는 추가하는 것을 디버깅 관점에서 아주 권장한다.
 
 ```ts
 const render = (time: number) => {
@@ -463,8 +463,8 @@ requestAnimationFrame(render);
 
 ## 아주 많은 개수의 파티클 만들고 동작 구체화하기
 
-앞선 과정을 컴퓨트 셰이더로 연산을 처리하고, 그 결과를 통해 버텍스/프래그먼트 셰이더를 거쳐 원하는 그리기를 수행했다.
-이제 이를 통해 대량의 파티클을 만들고, 더 그럴싸한 움직임을 갖도록 해보자.
+앞선 과정을 거쳐 컴퓨트 셰이더로 연산을 처리하고, 그 결과를 그대로 렌더 패스로 넘겨 원하는 그리기 작업을 수행했다.
+이제 훨씬 더 많은 양의 파티클을 만들고, 좀 더 그럴싸한 움직임을 갖추도록 해보자.
 
 먼저 `particleBuffer`라는 이름의 새 버퍼를 만들고, 여기에 각 파티클의 회전 방향과 속도를 담을 것이다.
 
@@ -514,14 +514,14 @@ struct Particle {
 }
 
 @group(0) @binding(0) var<storage, read_write> positions: array<vec2f>;
-@group(0) @binding(1) var<storage, read_write> agent: array<Particle>;
+@group(0) @binding(1) var<storage, read_write> particle: array<Particle>;
 
 @compute @workgroup_size(64, 1, 1) fn computeMain(
   @builtin(local_invocation_id) localId : vec3<u32>,
   @builtin(global_invocation_id) globalId: vec3<u32>
 ) {
-  let angle = agent[globalId.x].angle;
-  let speed = agent[globalId.x].speed;
+  let angle = particle[globalId.x].angle;
+  let speed = particle[globalId.x].speed;
   positions[globalId.x].x += rotate(angle, positions[globalId.x]).x * speed;
   positions[globalId.x].y += rotate(angle, positions[globalId.x]).y * speed;
 }
@@ -539,7 +539,7 @@ fn rotate(angle: f32, position: vec2f) -> vec2f {
 
 ## 인터랙션 추가하기
 
-이제 여기에, 마우스 인터랙션을 추가해 마우스 위치를 중심으로 파티클이 원 모양을 그리며 흩뿌려지는 효과를 추가하고, 애니메이션을 수정해보자.
+이제 여기에, 마우스 위치를 중심으로 파티클이 원 모양을 그리며 흩뿌려지는 효과를 추가하고, 애니메이션을 수정해보자.
 
 컴퓨트 셰이더에서 현재 마우스의 위치와, 이에 대한 클립 공간 좌표를 얻기 위해 캔버스 해상도 `resolution`와 마우스 위치  `mousePosition`, 그리고 각 프레임 간의 시간 간격을 나타내는 `deltaTime`을 추가하여 넘겨줄 유니폼 버퍼를 새로 만들어준다.
 
@@ -665,16 +665,16 @@ fn transform(angle: f32, position: vec2f) -> vec2f {
 }
 ```
 
-여기까지 완료했다면, 마우스 위치에 기반하여, 수많은 파티클이 흩날리면서도 흐릿한 원의 형태를 그리는 것을 확인할 수 있다.
+이제 마우스 위치에 기반하여, 수많은 파티클이 흩날리면서도 흐릿한 원의 형태를 그리는 것을 확인할 수 있다.
 
 ![세번째 구현 결과](image-2.png)
 
 ## 디테일 다듬기
 
-크게 중요한 부분은 아니지만, 내 경우에는 좀 더 모래 먼지 같은 느낌을 주고 싶어 컬러를 조정해주고, 파티클 개수는 `200_000`개로 수정해주었다.
+크게 중요한 부분은 아니지만, 내 경우에는 좀 더 모래 먼지 같은 느낌을 주고 싶어 컬러를 조정해주고, 파티클 개수를 `200_000`개로 수정해주었다.
 
 ```ts
-const POINT_COUNT = 200000;
+const POINT_COUNT = 200_000;
 
 // ...
 
@@ -718,7 +718,7 @@ fn fragmentMain(in: VSOutput) -> @location(0) vec4f {
 
 ## CPU 버전으로도 만들어보기
 
-구현 결과에 덧붙여, *CPU 버전에 비해 얼마나 빠를까?* 라는 궁금증을 해소하기 위해, CPU 버전으로도 한번 동일한 내용을 구현해보았다.
+그래서, 이게 *CPU 버전에 비해 얼마나 빠를까?* 라는 궁금증을 해소하기 위해, 컴퓨트 셰이더가 아닌, JS에서 로직을 직접 처리하는 CPU 버전으로도 한번 동일한 내용을 구현해보았다. (다소 지저분한 코드에 대한 양해를 구한다. 😅)
 
 ```ts
 const USE_COMPUTE_SHADER = false;
@@ -730,7 +730,7 @@ if (USE_COMPUTE_SHADER) {
 } else {
   // Use CPU version
   // JS 측에서 직접 각 데이터에 접근하여 수정을 가한다.
-  // 로직 자체는 컴퓨트 셰이더의 내용과 동일하다.
+  // 로직 자체는 컴퓨트 셰이더에서 구현했던 내용과 동일하다.
   const resolution = [canvas.width, canvas.height];
   const _mousePosition = [
     mousePosition?.x || canvas.width / 2,
@@ -764,7 +764,7 @@ if (USE_COMPUTE_SHADER) {
 }
 ```
 
-파티클의 개수를 백만개로 상당히 많이 늘린 뒤, CPU 버전과 GPU 버전 간의 성능을 비교해보았다.
+이제 차이를 더 명확하게 파악하기 위해 파티클의 개수를 백만개로 크게 많이 늘린 뒤, 각 버전 간의 성능을 비교해보았다.
 
 ```ts
 const POINT_COUNT = 100_0000;
@@ -784,9 +784,9 @@ JS로 직접 데이터를 변수에 저장하고, 수정하기 때문에 힙 크
 
 ### GPU 버전
 
-반면, 컴퓨트 셰이더를 활용하는 GPU 버전의 경우, 한 눈에 보기에도 쾌적하게 애니메이션이 재생된다.
+반면, 컴퓨트 셰이더를 활용하는 GPU 버전의 경우, 확실히 쾌적하게 애니메이션이 재생된다.
 실제로도 144Hz의 재생률에 알맞게 144fps에 가깝게 화면을 렌더해주는 것을 볼 수 있다.
-또한, 로직 처리에 CPU와 JS를 직접 사용하지 않기 때문에, CPU 사용량과 힙 크기가 현저하게 낮아진 것이 눈에 띈다.
+로직 처리에 CPU와 JS를 직접 사용하지 않기 때문에, CPU 사용량과 힙 크기가 현저하게 낮아진 것이 눈에 띈다.
 
 ![GPU 버전 FPS](image-6.png)
 
@@ -796,8 +796,8 @@ JS로 직접 데이터를 변수에 저장하고, 수정하기 때문에 힙 크
 
 이번 포스트에서는 WebGPU의 컴퓨트 셰이더를 사용하여 엄청 많은 개수의 파티클 연산을 처리하고, 그 결과 버퍼를 그대로 버텍스/프래그먼트 셰이더에서 사용하여 렌더링하는 방법을 다뤘다.
 
-WebGPU는 아직까지도 실험 단계에 있는 API이긴 하지만, 컴퓨트 셰이더를 이용한 수많은 병렬 연산에 있어 엄청 강력하고, 빠른 성능을 보여주었다. 확실히 활용에 따라 무궁무진한 가능성을 보여줄 것이라고 생각된다.
+WebGPU는 아직까지도 실험 단계에 있는 API이긴 하지만, 컴퓨트 셰이더를 이용한 수많은 병렬 연산에 있어 엄청 강력하고, 빠른 성능을 보여주었다. 확실히 활용에 따라 무궁무진한 가능성을 보여줄 것이라 생각한다.
 
-이번 포스트에서는 로우 레벨로 API를 이해하기 위해, WebGPU API를 있는 그대로 직접 사용해봤다. 이 포스트에서 다루는 예제를 만들기 위한 방대한 양의 코드만 살펴봐도, 분명 이 API로 처음부터 끝까지 모든 것을 처리하기에는 프로젝트의 규모에 따라 분명 어려움이 존재할 것으로 생각된다. 실제로도 리팩토링에 크게 신경을 쓰지 않아서, 코드가 다소 지저분한데, 이 부분은 추후에 또 수정해보겠다. 😅
+이번 포스트에서는 로우 레벨로 API를 이해하기 위해, WebGPU API를 있는 그대로 직접 사용해봤다. 이 포스트에서 다루는 간단한 예제를 만들기 위한 방대한 양의 코드만 살펴봐도, 이 API를 있는 그대로 사용해서 처음부터 끝까지 모두 구현하는 것은 분명 쉽지 않은 작업이다. 다만 그런만큼 구현에 있어 자유도가 높다는 것은 장점이라 볼 수 있다.
 
-만약 나중에 동일한 기능이 요구되는 경우, WebGPU를 직접 사용하기 보다는, BabylonJS 쪽에서 컴퓨트 셰이더를 손쉽게 사용하기 위한 [API를 제공](https://doc.babylonjs.com/features/featuresDeepDive/materials/shaders/computeShader)하고 있기 때문에, 추후에는 이 쪽을 사용해보는 쪽을 고려해볼 것 같긴 하다.
+만약 나중에 유사한 형태의 구현이 요구되는 경우, WebGPU API를 직접 사용하기 보다는, BabylonJS 쪽에서 컴퓨트 셰이더를 손쉽게 사용하기 위한 [API를 제공](https://doc.babylonjs.com/features/featuresDeepDive/materials/shaders/computeShader)하고 있기 때문에, 추후에는 이 쪽을 사용해보는 쪽도 고려해볼 것 같긴 하다.
