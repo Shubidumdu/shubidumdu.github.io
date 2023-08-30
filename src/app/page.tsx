@@ -60,7 +60,7 @@ export default async function Home() {
   return (
     <>
       <TopBar />
-      <main className="container font-mono my-0 mx-auto mt-16">
+      <main className="container font-mono my-0 mx-auto mt-16 mb-32">
         <div>
           <PostCardList posts={posts} />
         </div>

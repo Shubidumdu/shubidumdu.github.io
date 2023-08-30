@@ -19,15 +19,17 @@ const PostCard = ({
   return (
     <li className="bg-white rounded-md shadow hover:scale-105 transition-all">
       <Link className="h-full" href={`/posts/${id}`}>
-        <article className="flex flex-row h-full">
-          <div className="relative min-w-[12rem] h-full" role="img">
+        <article className="flex flex-row h-full max-sm:flex-col">
+          <div
+            className="relative min-w-[12rem] h-full max-sm:min-h-[8rem]"
+            role="img"
+          >
             <Image
               loading="lazy"
-              className="rounded rounded-r-none"
+              className="rounded rounded-r-none object-cover max-sm:rounded-b-none max-sm:rounded-t"
               fill
               src={image}
               alt={title}
-              objectFit="cover"
             />
           </div>
           <div className="w-full p-4 pb-2 pt-2">
