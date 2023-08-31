@@ -5,6 +5,7 @@ import fm, { type FrontMatterResult } from 'front-matter';
 import Post from '@/app/components/Post';
 import TopBar from '@/app/components/TopBar';
 import { Metadata } from 'next';
+import Comment from '@/app/components/Comment';
 
 type PageProps = {
   params: {
@@ -89,6 +90,7 @@ const Page = async ({ params }: PageProps) => {
       <TopBar />
       <main className="flex flex-col min-h-full mt-16 mb-32 sm:p-4">
         <Post post={post} base={`${BASE_URL}/${postId}/`} />
+        <Comment className="mt-4" />
       </main>
     </>
   );
