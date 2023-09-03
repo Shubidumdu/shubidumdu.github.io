@@ -90,7 +90,7 @@ const Page = async ({ params }: PageProps) => {
       <TopBar />
       <main className="flex flex-col min-h-full mt-16 mb-32 sm:p-4">
         <Post post={post} base={`${BASE_URL}/${postId}/`} />
-        <Comment className="mt-4" />
+        <Comment />
       </main>
     </>
   );
