@@ -11,6 +11,7 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import glsl from 'highlight.js/lib/languages/glsl';
 import 'highlight.js/styles/github.css';
 import { baseUrl } from 'marked-base-url';
+import markedKatex from 'marked-katex-extension';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('plaintext', plaintext);
@@ -29,6 +30,9 @@ const marked = new Marked(
       const language = hljs.getLanguage(lang) ? lang : 'plaintext';
       return hljs.highlight(code, { language }).value;
     },
+  }),
+  markedKatex({
+    throwOnError: false,
   }),
 );
 

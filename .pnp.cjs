@@ -41,6 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["marked", "npm:7.0.4"],\
             ["marked-base-url", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:1.0.6"],\
             ["marked-highlight", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4"],\
+            ["marked-katex-extension", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:3.0.5"],\
             ["next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["postcss", "npm:8.4.28"],\
             ["react", "npm:18.2.0"],\
@@ -426,6 +427,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json5-npm-0.0.29-f63a7916bd-e60b153664.zip/node_modules/@types/json5/",\
           "packageDependencies": [\
             ["@types/json5", "npm:0.0.29"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/katex", [\
+        ["npm:0.16.2", {\
+          "packageLocation": "./.yarn/cache/@types-katex-npm-0.16.2-5a636b4632-c681c3b8b5.zip/node_modules/@types/katex/",\
+          "packageDependencies": [\
+            ["@types/katex", "npm:0.16.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1160,6 +1170,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["commander", "npm:4.1.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.3.0", {\
+          "packageLocation": "./.yarn/cache/commander-npm-8.3.0-c0d18c66d5-0f82321821.zip/node_modules/commander/",\
+          "packageDependencies": [\
+            ["commander", "npm:8.3.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["concat-map", [\
@@ -1319,6 +1336,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["marked", "npm:7.0.4"],\
             ["marked-base-url", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:1.0.6"],\
             ["marked-highlight", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4"],\
+            ["marked-katex-extension", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:3.0.5"],\
             ["next", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:13.4.19"],\
             ["postcss", "npm:8.4.28"],\
             ["react", "npm:18.2.0"],\
@@ -3042,6 +3060,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["katex", [\
+        ["npm:0.16.8", {\
+          "packageLocation": "./.yarn/cache/katex-npm-0.16.8-5aa3337981-4e75b47861.zip/node_modules/katex/",\
+          "packageDependencies": [\
+            ["katex", "npm:0.16.8"],\
+            ["commander", "npm:8.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["language-subtag-registry", [\
         ["npm:0.3.22", {\
           "packageLocation": "./.yarn/cache/language-subtag-registry-npm-0.3.22-e9f79fe04e-8ab70a7e0e.zip/node_modules/language-subtag-registry/",\
@@ -3211,6 +3239,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["marked-highlight", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:2.0.4"],\
             ["@types/marked", null],\
+            ["marked", "npm:7.0.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/marked",\
+            "marked"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["marked-katex-extension", [\
+        ["npm:3.0.5", {\
+          "packageLocation": "./.yarn/cache/marked-katex-extension-npm-3.0.5-b097dc61eb-611a7df4ee.zip/node_modules/marked-katex-extension/",\
+          "packageDependencies": [\
+            ["marked-katex-extension", "npm:3.0.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:3.0.5", {\
+          "packageLocation": "./.yarn/__virtual__/marked-katex-extension-virtual-c56961d97f/0/cache/marked-katex-extension-npm-3.0.5-b097dc61eb-611a7df4ee.zip/node_modules/marked-katex-extension/",\
+          "packageDependencies": [\
+            ["marked-katex-extension", "virtual:4b01ae10024eb7686a033b8029197ae1b4a5020b1e11a19031b87d831276ab82204e186c476fde7c81c5bfc8d18114e0a505dd512c73f559ec7a4b393baf7c0f#npm:3.0.5"],\
+            ["@types/katex", "npm:0.16.2"],\
+            ["@types/marked", null],\
+            ["katex", "npm:0.16.8"],\
             ["marked", "npm:7.0.4"]\
           ],\
           "packagePeers": [\

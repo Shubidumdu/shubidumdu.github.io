@@ -303,6 +303,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/katex@npm:^0.16.2":
+  version: 0.16.2
+  resolution: "@types/katex@npm:0.16.2"
+  checksum: c681c3b8b5ec5de9422ec041ffdf43227a3ef2877b2b1d1c906b8d87341d385259b468febbb0426dd8834d2803fe5ab86384557b70dfbd89e9ae0af6886898ba
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:20.5.1":
   version: 20.5.1
   resolution: "@types/node@npm:20.5.1"
@@ -917,6 +924,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "commander@npm:8.3.0"
+  checksum: 0f82321821fc27b83bd409510bb9deeebcfa799ff0bf5d102128b500b7af22872c0c92cb6a0ebc5a4cf19c6b550fba9cedfa7329d18c6442a625f851377bacf0
+  languageName: node
+  linkType: hard
+
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
@@ -1034,6 +1048,7 @@ __metadata:
     marked: ^7.0.4
     marked-base-url: ^1.0.6
     marked-highlight: ^2.0.4
+    marked-katex-extension: ^3.0.5
     next: 13.4.19
     postcss: 8.4.28
     react: 18.2.0
@@ -2465,6 +2480,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"katex@npm:^0.16.8":
+  version: 0.16.8
+  resolution: "katex@npm:0.16.8"
+  dependencies:
+    commander: ^8.3.0
+  bin:
+    katex: cli.js
+  checksum: 4e75b4786101cc5eca0404bb814b2985bec506846f9015e9bf00207a3af14215e341ee62b6e7af2455a1032f8244e47a754642f250eea43d7b8007146ac01fae
+  languageName: node
+  linkType: hard
+
 "language-subtag-registry@npm:~0.3.2":
   version: 0.3.22
   resolution: "language-subtag-registry@npm:0.3.22"
@@ -2593,6 +2619,18 @@ __metadata:
   peerDependencies:
     marked: ^4 || ^5 || ^6 || ^7
   checksum: 3f0c26c73a2894642c9b2da876dd58d2ab4e41cb82c90d181d4ad34f14503a9994c9e52e638d5bb853f2ba365953b475e14c61109d52e7cc299fbf6b2dbe83de
+  languageName: node
+  linkType: hard
+
+"marked-katex-extension@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "marked-katex-extension@npm:3.0.5"
+  dependencies:
+    "@types/katex": ^0.16.2
+    katex: ^0.16.8
+  peerDependencies:
+    marked: ">=4 <10"
+  checksum: 611a7df4ee266fafc3576058c77970ce0c9387a12e41dae4024b3736eb37c74192ed7d0aa951375b0ca1bcc308be1196b7dc15498a0b3b52e08366397e0d49e6
   languageName: node
   linkType: hard
 
