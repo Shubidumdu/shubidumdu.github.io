@@ -48,3 +48,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.katex-display {
+  margin: 16px;
+}
+
+.katex-html {
+  display: none;
+}
