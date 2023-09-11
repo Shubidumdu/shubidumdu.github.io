@@ -29,6 +29,8 @@ Gooch 셰이딩은 크게 두 가지의 색상을 사용하는데, 이는 각각
 
 이번 포스트에서 구현할 셰이딩 모델은, Gooch 셰이딩과 유사하지만, 다중 광원에 대해 동작이 가능하도록 수정된 형태이다. (비록 여기서는 하나의 광원만을 사용하더라도)
 
+> 사실은, `uint` 유니폼을 활용하여 실제로 여러 개의 광원을 넣을 수 있는 형태로 구현을 하려 했는데, 생각대로 되지 않아 궁금한 맘에 [포럼에 질문을 올렸다](https://forum.babylonjs.com/t/cannot-use-uint-uniforms-in-shadermaterial/43998). 알고보니 `ShaderMaterial`의 `uint` 유니폼 설정과 관련한 버그가 있었고, 그걸 어쩌다 내가 찾았던 모양이다. 직접 PR을 올린건 아니지만, 이슈를 발견함에 따라 간접적으로 라이브러리에 기여했다는 생각에 뿌듯한 경험이었다.
+
 먼저 여기서 사용될 각 벡터에 대해서는 아래의 그림이 이해를 도울 것이다.
 
 ![blinn vector](https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Blinn_Vectors.svg/2880px-Blinn_Vectors.svg.png)
