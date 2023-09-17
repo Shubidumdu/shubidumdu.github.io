@@ -709,6 +709,7 @@ fn fragmentMain(in: VSOutput) -> @location(0) vec4f {
 <iframe
   id="Dust"
   title="Dust"
+  loading="lazy"
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"

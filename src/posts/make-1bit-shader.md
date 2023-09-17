@@ -305,6 +305,7 @@ if(edgeDepth>depthThreshold){
 <iframe
   id="Dust"
   title="Dust"
+  loading="lazy"
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"
