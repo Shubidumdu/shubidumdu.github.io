@@ -60,7 +60,6 @@ precision highp float;
 // Attributes
 in vec3 position;
 in vec3 normal;
-in vec2 uv;
 
 // Uniforms
 uniform mat4 worldViewProjection;
@@ -86,7 +85,6 @@ precision highp float;
 
 uniform vec3 reverseLightDirection;
 
-in vec4 vPosition;
 in vec3 vNormal;
 
 out vec4 fragColor;
@@ -114,7 +112,7 @@ scene.clearColor = new Color4(0, 0, 0, 1);
 
 ```ts
 const oneBitShaderMaterial = new ShaderMaterial("oneBitShader", scene, './1bit-shader', {
-  attributes: ["position", "normal", "uv"],
+  attributes: ["position", "normal"],
   uniforms: ["worldViewProjection", "reverseLightDirection", "mainColor", "subColor"],
 });
 
