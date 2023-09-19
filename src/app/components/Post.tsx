@@ -9,6 +9,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import plaintext from 'highlight.js/lib/languages/plaintext';
 import typescript from 'highlight.js/lib/languages/typescript';
 import glsl from 'highlight.js/lib/languages/glsl';
+import json from 'highlight.js/lib/languages/json';
 import 'highlight.js/styles/github.css';
 import { baseUrl } from 'marked-base-url';
 import markedKatex from 'marked-katex-extension';
@@ -17,6 +18,7 @@ hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('plaintext', plaintext);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('glsl', glsl);
+hljs.registerLanguage('json', json);
 
 type PostProps = {
   post: FrontMatterResult<MdAttributes>;
