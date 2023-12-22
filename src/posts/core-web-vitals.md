@@ -275,7 +275,7 @@ INP의 경우, **다음과 같은 인터랙션 타입만 관찰됩니다**.
 
 인터랙션은 기본 문서 또는 문서에 삽입된 iframe을 통해 이루어집니다. 최종 사용자는 iframe에 무엇이 있는지 여부를 알 수 없고, 따라서 최상위 페이지의 사용자 경험을 측정하기 위해서는 iframe 내의 INP가 필요합니다. JS 웹 API는 iframe 컨텐츠에 액세스할 수 없기 때문에 iframe 내 INP를 측정하지 못할 수 있으며, 이는 [CrUX와 RUM의 차이](https://web.dev/articles/crux-and-rum-differences?hl=ko#iframes)로 드러납니다.
 
-인터랙션은 각각 여러 이벤트가 있는 두 부분으로 구성될 수 있습니다. 예를 들어 키 입력은 `keydown`, `keypress`, 그리고 `keyup` 이벤트로 구성됩니다. 탭 인터랙션은 `pointerup`, `pointerdown` 이벤트가 포함됩니다. 인터랙션 내에서 가장 지속 시간이 긴 이벤트가 인터랙션의 지연 시간으로 선택됩니다.
+인터랙션이 여러 이벤트가 존재하는 두 부분으로 구성될 수 있는 경우도 있습니다. 예를 들어 키 입력은 `keydown`, `keypress`, 그리고 `keyup` 이벤트로 구성되고, 탭 인터랙션은 `pointerup`, `pointerdown` 이벤트가 포함됩니다. 이 때는 인터랙션 내에서 가장 지속 시간이 긴 이벤트가 인터랙션의 지연 시간으로 선택됩니다.
 
 ![Alt text](image-18.png)
 
