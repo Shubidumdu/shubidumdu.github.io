@@ -1,11 +1,11 @@
 ---
 title: Core Web Vitals
-desc: 웹 성능 지표로서 Core Web Vitals이 갖는 의미와 이에 대한 개선/측정, 그리고 이를 갖출 때 얻는 이점에 대해 살펴봅니다.
-createdAt: '2023-12-12'
-image: 
+desc: 웹 성능 지표로서 Core Web Vitals이 갖는 의미에 대해 이론적으로 살펴봅니다.
+createdAt: '2023-12-25'
+image: ./core-web-vitals/thumbnail.png
 tags:
-    - Web
     - Browser
+    - Web
 ---
 
 ## Web Vitals
@@ -281,7 +281,10 @@ INP의 경우, **다음과 같은 인터랙션 타입만 관찰됩니다**.
 
 INP는 사용자가 페이지를 떠날 때 계산되며, 전체 페이지 수명 주기 동안에 페이지의 전반적인 응답성을 나타내는 단일의 값이 됩니다. **INP가 낮다는 것은 페이지가 사용자 입력에 안정적으로 반응한다는 것을 의미합니다**.
 
-## 참조
-- https://web.dev/articles/user-centric-performance-metrics?hl=ko
 
----
+## 마치며
+
+이번 포스트에서는 Core Web Vitals에 대해 꽤 길게 살펴보았습니다. 다음의 포스트에서는 Core Web Vitals를 실제로 측정하고, 개선하는 방법에 대해서 실습을 거쳐 적용해볼 예정입니다.
+
+## 참조
+- [https://web.dev/articles/vitals?hl=ko](https://web.dev/articles/vitals?hl=ko)
