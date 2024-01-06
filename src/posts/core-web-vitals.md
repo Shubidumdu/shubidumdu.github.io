@@ -1,6 +1,6 @@
 ---
 title: Core Web Vitals
-desc: 프론트엔드의 관점에서, 성능(Performance)은 무엇을 의미하고, 또 어떻게 측정할 수 있을까요?
+desc: 프론트엔드의 관점에서, 성능(Performance)은 무엇을 의미하고, 또 어떻게 측정할 수 있을까?
 createdAt: '2024-01-03'
 image: ./core-web-vitals/thumbnail.png
 tags:
