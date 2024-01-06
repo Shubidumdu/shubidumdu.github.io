@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { resolve as resolvePath } from 'path';
 import { readdir, stat } from 'fs/promises';
 
-const SITE_URL = 'https://shubidumdu.github.io/devlog';
+const SITE_URL = 'https://shubidumdu.github.io';
 
 const postPath = resolvePath(process.cwd(), 'src/posts');
 
