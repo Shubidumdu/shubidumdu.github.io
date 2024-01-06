@@ -1,12 +1,18 @@
-const IFRAME_SRC = 'https://shubidumdu.github.io/sketchbook/pages/ocean/';
+type BackgroundType = 'ocean' | 'cloud' | 'bunny' | 'pollock';
 
-const Background = () => {
+const IFRAME_BASE_URL = 'https://shubidumdu.github.io/sketchbook/pages/';
+
+type BackgroundProps = {
+  type?: BackgroundType;
+};
+
+const Background = ({ type = 'ocean' }: BackgroundProps) => {
   return (
     <iframe
       id="background"
       title="background"
       className="w-full h-full fixed top-0 left-0 z-[-99]"
-      src={IFRAME_SRC}
+      src={`${IFRAME_BASE_URL}/${type}`}
     />
   );
 };

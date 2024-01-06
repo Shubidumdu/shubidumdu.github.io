@@ -39,7 +39,7 @@ const Comment = () => {
 
   return (
     <div
-      className="[&>.utterances]:max-w-full container m-auto rounded max-sm:rounded-none p-4 font-mono mt-4"
+      className="[&>.utterances]:max-w-4xl container m-auto rounded max-sm:rounded-none p-4 font-mono mt-4"
       ref={commentRef}
     />
   );
