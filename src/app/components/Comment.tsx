@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 
 const UTTERANCES_SCRIPT_OPTIONS = {
   src: 'https://utteranc.es/client.js',
-  repo: 'Shubidumdu/devlog',
+  repo: 'Shubidumdu/shubidumdu.github.io',
   'issue-term': 'pathname',
   label: 'comment',
   theme: 'github-light',
