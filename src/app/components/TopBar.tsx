@@ -9,6 +9,10 @@ const PATHS = [
     label: 'Posts',
   },
   {
+    path: '/projects',
+    label: 'Projects',
+  },
+  {
     path: '/sketchbook',
     label: 'Sketchbook',
   },
