@@ -246,7 +246,6 @@ socket.on("candidate", (candidate: RTCIceCandidate) => {
 }
 ```
 
-
 여기서 말하는 **SDP**(Session Description Protocol)는 데이터 전송 시에 두 피어가 서로에 대해 이해할 수 있도록 연결의 멀티 미디어 컨텐츠를 설명하는 표준입니다. 이는 미디어 컨텐츠 그 자체가 아니라, 컨텐츠를 설명하는 메타데이터에 해당합니다.
 
 ![alt text](image-5.png)
@@ -255,7 +254,13 @@ socket.on("candidate", (candidate: RTCIceCandidate) => {
 
 ### ICE Candidate
 
-다시 돌아와서, 위 쪽의 코드를 살펴보면, `candidate`라는 이벤트에 대해 다루고 있는 것이 보입니다. **ICE Candidate**란, 전송 중인 피어가 소통할 수 있는 방식에 대해 설명하는 내용을 담고 있습니다. 각 피어는 candidate가 발견될 때마다 그 순서대로 candidate를 전송하며, 심지어 미디어 스트리밍이 이미 시작된 경우에도 후보에 대한 전송은 계속해서 이루어집니다.
+다시 위 쪽의 코드를 살펴보면, candidate라는 이벤트에 대해 다루고 있는 것이 보입니다.
+
+ICE Candidate란, 전송 중인 피어가 소통할 수 있는 방식에 대한 내용을 담고 있습니다. 이는 말 그대로 “연결 후보”의 느낌으로, 양 측의 피어로부터 서로 전달됩니다. 각 피어는 candidate가 발견될 때마다 그 순서대로 candidate를 전송하며, 심지어 미디어 스트리밍이 이미 시작된 경우에도 후보에 대한 전송은 계속해서 이루어집니다. candidate은 아래와 같은 형태입니다. 보다 세부적인 명세에 대해서는 [이쪽](https://datatracker.ietf.org/doc/html/rfc5245#section-15.1)을 참조해주세요.
+
+```
+a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host
+```
 
 두 피어가 상호 호환 가능한 후보에 동의하면, 각 피어에서 해당 후보의 SDP를 사용해서 연결을 구성하며, 이로 인해 데이터 채널이 열린(opened) 상태가 되면, 비로소 데이터 채널을 통해 데이터를 전달할 수 있는 상태가 됩니다.
 
@@ -271,11 +276,31 @@ pc.addEventListener("icecandidate", (event) => {
     socket.emit("candidate", event.candidate);
   }
 });
+
+pc.addEventListener("connectionstatechange", (event) => {
+  if (pc.connectionState === "connected") {
+    // 드디어 연결되었습니다.
+    console.log("connected!");
+  }
+});
 ```
 
 ## 결과물 살피기
 
 자, 여기까지 이루어졌다면, 각 클라이언트에서 소켓을 연결하고, 한 쪽에서 데이터 채널을 생성한 후 offer를 전달하면 드디어 데이터 채널이 열리게 됩니다!
+
+```ts
+// 이제 데이터 채널을 통해 데이터를 주고받을 수 있습니다!
+
+// 넘겨주는 쪽에서 메시지를 전달하면
+dataChannel.send(message);
+
+// 넘겨받는 쪽의 데이터 채널에서 `message` 이벤트가 발생합니다.
+dataChannel.addEventListener("message", (e) => {
+  const message = e.data;
+  // ...
+});
+```
 
 여기까지 구축한 내용들을 활용해보면 아래와 같이 간단한 채팅 앱을 만들어 볼 수 있습니다.
 
