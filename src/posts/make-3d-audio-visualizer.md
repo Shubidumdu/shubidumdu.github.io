@@ -1,7 +1,7 @@
 ---
 title: WebAudio API와 WebGPU를 통한 3D 오디오 비주얼라이저 만들기
 desc: AudioContext를 이용해 오디오 스트림을 핸들링하고, 이를 컴퓨트 셰이더를 거쳐 파티클 시스템으로 시각화한다.
-createdAt: 2024-03-21
+createdAt: '2024-03-21'
 image:  ./make-3d-audio-visualizer/thumbnail.png
 tags:
   - Browser
@@ -79,7 +79,7 @@ analyser.getByteFrequencyData(dataArray); // dataArray에 주파수 데이터가
 // ex.) [255, 210, 188, ...]
 ```
 
-## 그래픽 구현
+## 그래픽 파이프라인 구축
 
 이제 본격적으로 음향 데이터를 시각적인 형태로 그려내는 작업을 해보겠습니다. 저는 이것을 파티클 시스템을 통해 다루어보고자 합니다.
 
@@ -87,14 +87,173 @@ analyser.getByteFrequencyData(dataArray); // dataArray에 주파수 데이터가
 
 ![alt text](image-7.png)
 
+사실, 그래픽 파이프라인의 구축 과정을 전부 다루는 것은 꽤나 범위가 크고 복잡한 내용이라, 본 포스팅에서 모두 다루기에는 무리가 있습니다.
+
+아래는 구축하고자 하는 내용의 대략적인 다이어그램을 그려본 것이고, 해당 포스팅에서는 큰 수준에서만 하나씩 그 내용을 다뤄보도록 하겠습니다.
+
+> **주의**: 여기 작성된 의사 코드들은 이해를 돕기 위한 것으로, 상당히 많은 것들이 생략되어 있습니다!
+
+![alt text](image-8.png)
+
+### WebGPU 컴퓨트 셰이더를 통한 파티클 데이터 연산
+
+파티클 시스템을 다루는 것은 성능적인 측면에서 제법 많은 고민이 필요합니다. 단순하게 생각해봐도, 많게는 수십, 수백만개가 되는 각 파티클의 위치나 각종 정보에 대해 매 프레임마다 계산하는 것은 분명 CPU의 입장에서 부담스러울 수 있는 작업이기 때문입니다. 실제로 기존의 WebGL에서는 이러한 연산을 JS를 통해 처리해주어야 했기 때문에, JS에서 파티클 시스템을 다룰 때는 분명한 병목이 존재했습니다.
+
+이 상황에서 WebGPU의 컴퓨트 셰이더가 활약합니다. **컴퓨트 셰이더**(**Compute Shader**)는 렌더링 작업의 엄격한 구조에 제약을 받지 않으면서도, GPU의 대규모 병렬 특성을 활용할 수 있게 해줍니다. 쉽게 말해, 병렬적으로 처리되었을 때 효과적일 것으로 판단되는 알고리즘들을 기존의 JS 쪽에서 GPU로 포팅하여 많은 성능 향상을 꾀할 수 있게 되었습니다.
+
 아래는 제가 이번에 사용할 이십면체(Icosahedron) 파티클입니다.
 
 ![alt text](image-6.png)
 
-### WebGPU 컴퓨트 셰이더 활용
+이제 이걸 최초에 좀 흩뿌려보겠습니다.
 
-사실 파티클 시스템을 다루는 것은 성능적인 측면에서 제법 많은 고민이 필요합니다. 단순하게 생각해봐도, 많게는 수십, 수백만개가 되는 각 파티클의 위치나 각종 정보에 대해 매 프레임마다 계산하는 것은 분명 CPU의 입장에서 부담스러울 수 있는 작업이기 때문입니다. 실제로 기존의 WebGL에서는 이러한 연산을 JS를 통해 처리해주어야 했기 때문에, JS에서 파티클 시스템을 다룰 때는 분명한 병목이 존재했습니다.
+```ts
+const PARTICLE_NUMS = 200_000;
 
-이 상황에서 WebGPU의 컴퓨트 셰이더가 활약합니다. **컴퓨트 셰이더**(**Compute Shader**)는 렌더링 작업의 엄격한 구조에 제약을 받지 않으면서도, GPU의 대규모 병렬 특성을 활용할 수 있게 해줍니다. 쉽게 말해, 병렬적으로 처리되었을 때 효과적일 것으로 판단되는 알고리즘들을 기존의 JS 쪽에서 GPU로 포팅하여 많은 성능 향상을 꾀할 수 있게 되었습니다.
+const initialParticles = new Float32Array(
+  [...new Array(PARTICLE_NUMS)]
+    .map(() => {
+      const d = 1000;
+      const x = d * (2 * Math.random() - 1);
+      const y = d * (2 * Math.random() - 1);
+      const z = d * (2 * Math.random() - 1);
+      return [
+        x, // position
+        y,
+        z,
+        // ...
+      ];
+    })
+    .flat(),
+);
+
+// 이 파티클 위치를 버퍼에 담아 컴퓨트 셰이더에 전달합니다..
+```
+
+![alt text](image-9.png)
+
+그리고 이걸 WGSL를 통해 컴퓨트 셰이더에서 각 파티클의 위치를 계산해줍니다! 여기서는 간단하게 3D 구체의 형태로 각 파티클을 흩뿌려 보겠습니다.
+
+```wgsl
+struct Uniforms {
+  // ...
+}
+
+struct Particle {
+  // ...
+}
+
+@binding(0) @group(0) var<uniform> uniforms: Uniforms;
+@binding(1) @group(0) var<storage, read_write> particles: array<Particle>;
+
+@compute @workgroup_size(64, 1, 1) fn main(
+  @builtin(global_invocation_id) globalId: vec3<u32>
+) {  
+  let index: u32 = globalId.x;
+
+  if (index >= uniforms.particleCount) {
+    return;
+  }
+
+  let speed = uniforms.deltaTime * 0.01;
+  let radius = uniforms.radius;
+  let position = particles[index].position;
+  let velocity = normalize(position - core) * radius - position;
+
+  particles[index].position += velocity * speed;
+}
+```
+
+제법 그럴싸한 원의 형태가 되었네요.
+
+![alt text](image-10.png)
+
+여기서 이제 각 파티클의 위치를 기반으로 노이즈를 적용한 다음 버텍스 셰이더 내 파티클의 크기 계산에서 사용하고, 법선에 해당하는 `normal` 값을 프래그먼트 셰이더 측 컬러 계산에 사용해주면 아래와 같은 마법이 일어납니다.
 
 
+```glsl
+// vertex.glsl
+
+#version 300 es
+precision highp float;
+
+in vec3 v_position;
+in vec3 p_position;
+in float noise;
+
+uniform mat4 worldViewProjection;
+
+out vec3 vPosition;
+out vec3 vNormal;
+
+void main() {
+  vec3 position = (p_position + (noise * .4) * v_position);
+  gl_Position = worldViewProjection * vec4(position, 1.);
+}
+```
+
+```glsl
+// fragment.glsl
+
+#version 300 es
+precision highp float;
+
+in vec3 vPosition;
+in vec3 vNormal;
+
+out vec4 outColor;
+
+void main() {
+  outColor = vec4(vNormal, 1.);
+}
+```
+
+
+![alt text](image-11.png)
+
+### 주파수 데이터를 가져와 사용하기
+
+이제 아까 포스트 초반의 주파수 데이터를 `analyser`를 통해 가져다 uniform으로 사용합니다!
+
+
+```ts
+// 매 프레임마다 계산됩니다.
+scene.onBeforeRenderObservable.add(() => {
+  analyser.getByteFrequencyData(dataArray); // dataArray에 주파수 데이터가 담기고
+  const low = dataArray[4]; // 저음
+  const mid = dataArray[8]; // 중음
+  const high = dataArray[12]; // 고음
+  // 이제 이 값들을 uniform으로 활용합니다.
+  // ....
+});
+```
+
+그리고 이것을 각 셰이더에서 적절히 활용하여 계산해준다면..
+
+```wgsl
+// 컴퓨트 셰이더의 노이즈 계산에 고음부를 활용하고
+let noise = max(fbm3d((position.xyz * (.4 + .1 * high) + vec3(0, time, 0)) * .2), .1);
+```
+
+```glsl
+// 버텍스 셰이더 상에서 파티클이 이루는 구의 반지름에 저음부를 활용하고,
+// 파티클이 튀어오르는 높이에 중고음부를 활용
+gl_Position = worldViewProjection * vec4(((.8 + .2 * nLow ) * position + (2. + nMid * 20. + nHigh * 20.) * noise * outer), 1.);
+```
+
+이제 음악에 맞추어 파티클이 튀어오르는 효과를 줄 수 있습니다!
+
+![alt text](image-12.png)
+
+## 결과물
+
+<iframe
+  id="Visualizer"
+  title="Visualizer"
+  loading="lazy"
+  width="800"
+  height="600"
+  style="margin:0 auto; max-width: 100%;"
+  src="https://shubidumdu.github.io/sketchbook/pages/visualizer/"
+>
+</iframe><br>
