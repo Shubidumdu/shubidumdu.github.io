@@ -13,12 +13,14 @@ import json from 'highlight.js/lib/languages/json';
 import 'highlight.js/styles/github.css';
 import { baseUrl } from 'marked-base-url';
 import markedKatex from 'marked-katex-extension';
+import { wgsl } from '@/utils/highlight';
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('plaintext', plaintext);
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('glsl', glsl);
 hljs.registerLanguage('json', json);
+hljs.registerLanguage('wgsl', wgsl);
 
 type PostProps = {
   post: FrontMatterResult<MdAttributes>;
