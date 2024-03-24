@@ -22,6 +22,11 @@
     max-width: 50%;
     margin: auto;
   }
+
+  .markdown-body iframe {
+    max-width: 50%;
+    margin: auto;
+  }
 }
 
 .markdown-body ul > li {
