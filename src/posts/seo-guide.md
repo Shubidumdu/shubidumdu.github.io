@@ -1,8 +1,8 @@
 ---
-title: SEO 딥 다이브
+title: SEO 기본 가이드
 desc: SEO의 구체적인 원리와 영향 요소들에 대해 살펴본다.
 createdAt: '2024-04-29'
-image: ./seo-deep-dive/thumbnail.png
+image: ./seo-guide/thumbnail.png
 tags:
   - Web
 ---
