@@ -6,7 +6,6 @@ import fm from 'front-matter';
 import { MdAttributes } from '../posts/[postId]/page';
 import { PostCardProps } from '../components/PostCard';
 import { Metadata } from 'next';
-import Background from '../components/Background';
 
 const getPosts = async () => {
   const postNames = (await readdir(resolve(process.cwd(), 'src/posts'))).map(
@@ -61,7 +60,6 @@ export default async function Home() {
   return (
     <>
       <TopBar />
-      <Background />
       <main className="container font-mono my-0 mx-auto mt-16 mb-32">
         <div>
           <PostCardList posts={posts} />
