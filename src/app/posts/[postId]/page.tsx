@@ -6,7 +6,6 @@ import Post from '@/app/components/Post';
 import TopBar from '@/app/components/TopBar';
 import { Metadata } from 'next';
 import Comment from '@/app/components/Comment';
-import Background from '@/app/components/Background';
 
 type PageProps = {
   params: {
