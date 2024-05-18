@@ -1,10 +1,11 @@
 ---
 title: PBR (Physically Based Rendering)
 desc: PBR을 셰이더 레벨에서 직접 구현해보고, 그 원리에 대해 이해한다.
-createdAt: '2024-05-'
+createdAt: '2024-05-19'
 image: ./pbr/thumbnail.png
 tags:
   - Graphics
+  - WebGL
 ---
 
 ## 들어가기
