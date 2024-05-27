@@ -70,7 +70,7 @@ $$ f_{lambert} = \frac{c}{\pi}$$
 
 남은 부분은 Specular 파트인데, 세 가지 함수( $D$, $F$, $G$ )와 분모의 정규화 계수로 구성됩니다.
 
-$$ f_{cook-torrance} = \frac{DFC}{4(\omega_o\cdot n)(\omega_i\cdot n)} $$
+$$ f_{cook-torrance} = \frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)} $$
 
 각각의 함수는 표면 반사의 각 특성을 근사화하는 함수 유형을 나타내며, 각각 아래와 같습니다.
 
@@ -82,11 +82,11 @@ $$ f_{cook-torrance} = \frac{DFC}{4(\omega_o\cdot n)(\omega_i\cdot n)} $$
 
 $$ L_o(p, \omega_o) = \int_{\Omega} f_r(p, \omega_i, \omega_o) L_i(p, \omega_i) (n \cdot \omega_i) \, d\omega_i $$
 $$ L_o(p, \omega_o) = \int_{\Omega} (k_d f_{lambert} + k_s f_{cook-torrance}) L_i(p, \omega_i)  (n \cdot \omega_i) \, d\omega_i $$
-$$ L_o(p, \omega_o) = \int_{\Omega} (k_d \frac{c}{\pi} + k_s \frac{DFC}{4(\omega_o\cdot n)(\omega_i\cdot n)})  L_i(p, \omega_i)  (n \cdot \omega_i) \, d\omega_i $$
+$$ L_o(p, \omega_o) = \int_{\Omega} (k_d \frac{c}{\pi} + k_s \frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)})  L_i(p, \omega_i)  (n \cdot \omega_i) \, d\omega_i $$
 
 추후에 덧붙이게 될 설명이지만, Specular의 구성 요소 중 프레넬 항 $F$ 는 표면에 반사되는 빛의 비율을 의미하며, 사실 상 기존 $k_s$ 를 대체합니다. 따라서 최종적인 반사율 방정식은 아래와 같아집니다.
 
-$$ L_o(p, \omega_o) = \int_{\Omega} (k_d \frac{c}{\pi} + \frac{DFC}{4(\omega_o\cdot n)(\omega_i\cdot n)})  L_i(p, \omega_i)  (n \cdot \omega_i) \, d\omega_i $$
+$$ L_o(p, \omega_o) = \int_{\Omega} (k_d \frac{c}{\pi} + \frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)})  L_i(p, \omega_i)  (n \cdot \omega_i) \, d\omega_i $$
 
 ## Image Based Lighting (IBL)
 
@@ -105,7 +105,7 @@ $$ L_o(p, \omega_o) = \int_{\Omega} (k_d \frac{c}{\pi} + \frac{DFC}{4(\omega_o\c
 
 이 시점에서 방정식을 다시 한번 들여다봅시다.
 
-$$ L_o(p, \omega_o) = \int_{\Omega} (k_d \frac{c}{\pi} + \frac{DFC}{4(\omega_o\cdot n)(\omega_i\cdot n)}) L_i(p, \omega_i)  (n \cdot \omega_i) \, d\omega_i $$
+$$ L_o(p, \omega_o) = \int_{\Omega} (k_d \frac{c}{\pi} + \frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)}) L_i(p, \omega_i)  (n \cdot \omega_i) \, d\omega_i $$
 
 이 중 Diffuse 항을 잘 보면, 이것이 적분 변수 $\omega_i$ 에 의존하고 있지 않으며, 상수항에 해당한다는 점을 알 수 있습니다.
 
@@ -161,13 +161,13 @@ irradiance = PI * irradiance * (1.0 / float(nrSamples));
 
 남은 것은 Specular인데, 앞선 방정식에서 Specular 항을 다시 살펴봅시다.
 
-$$ L_o(p, \omega_o)_{specaulr} = \int_{\Omega} \frac{DFC}{4(\omega_o\cdot n)(\omega_i\cdot n)} L_i(p, \omega_i) (n \cdot \omega_i) \, d\omega_i $$
+$$ L_o(p, \omega_o)_{specaulr} = \int_{\Omega} \frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)} L_i(p, \omega_i) (n \cdot \omega_i) \, d\omega_i $$
 
 Specular의 경우는 Diffuse보다 좀 더 까다로운데, 기본적으로 입사/반사 두 벡터에 의존하는 형태로 구성되어 있기 때문입니다. Epic Games에서는 이 문제를 각각 두개의 식으로 쪼개고, 미리 계산을 수행한 다음, 최종 결과에 이를 합치는 방식으로 해결합니다.
 
 즉, 위 방정식은 아래와 같은 형태로 쪼개질 수 있습니다.
 
-$$ L_o(p, \omega_o)_{specaulr} = \int_{\Omega} L_i(p, \omega_i) * \int_{\Omega} \frac{DFC}{4(\omega_o\cdot n)(\omega_i\cdot n)} (n \cdot \omega_i) \, d\omega_i $$
+$$ L_o(p, \omega_o)_{specaulr} = \int_{\Omega} L_i(p, \omega_i) * \int_{\Omega} \frac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)} (n \cdot \omega_i) \, d\omega_i $$
 
 앞쪽 항의 경우, Diffuse의 경우와 유사하게 컨볼루션을 통해 해결합니다. Specular의 경우 재질의 거칠기(roughness)에 의존하기 때문에, 각각의 roughness 수준에 따라 활용할 목적으로 점차 흐릿해지는 밉맵(Mip Map)의 형태로 생성합니다. 이를 Pre-filtered environment map이라고 합니다.
 
