@@ -215,7 +215,7 @@ vec3 specular = prefilteredColor * (F * brdf.x + brdf.y);
 
 비물리 기반 렌더링에 해당하는 Phong과 비교하여 주변 환경이 반영된 결과에 따라 부여된 현실감이 눈에 띕니다.
 
-![Results](image-18.png)
+![alt text](result.png)
 
 
 
