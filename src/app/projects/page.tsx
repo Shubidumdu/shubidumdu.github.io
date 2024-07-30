@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Background from '../components/Background';
 import { ProjectCardProps } from '../components/ProjectCard';
 import ProjectCardList from '../components/ProjectCardList';
 import TopBar from '../components/TopBar';
