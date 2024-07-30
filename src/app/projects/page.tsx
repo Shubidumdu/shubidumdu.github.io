@@ -79,6 +79,7 @@ export default function Projects() {
   return (
     <>
       <TopBar />
+      <Background />
       <main className="container font-mono my-0 mx-auto mt-16 mb-32">
         <div>
           <ProjectCardList projects={PROJECTS} />
