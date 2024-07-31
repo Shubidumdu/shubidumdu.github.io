@@ -6,7 +6,9 @@ const UTTERANCES_SCRIPT_OPTIONS = {
   repo: 'Shubidumdu/shubidumdu.github.io',
   'issue-term': 'pathname',
   label: 'comment',
-  theme: 'github-light',
+  theme: window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark-blue'
+    : 'github-light',
   crossorigin: 'anonymous',
 } as const;
 
