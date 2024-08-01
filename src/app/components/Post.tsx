@@ -54,7 +54,7 @@ const Post = ({ post, base }: PostProps) => {
   if (!parsedMarkDown) return null;
 
   return (
-    <div className="container m-auto max-w-4xl rounded max-sm:rounded-none p-4 font-mono bg-white shadow">
+    <div className="container m-auto max-w-4xl rounded max-sm:rounded-none p-4 font-mono bg-white dark:bg-gray-800 shadow">
       <div className="flex justify-between">
         <h3 className="text-gray-400 text-xs">{post.attributes.createdAt}</h3>
         <div>
@@ -62,7 +62,7 @@ const Post = ({ post, base }: PostProps) => {
         </div>
       </div>
       <div
-        className="markdown-body font-mono pt-4"
+        className="markdown-body font-mono pt-4 dark:bg-gray-800"
         dangerouslySetInnerHTML={{
           __html: parsedMarkDown,
         }}
