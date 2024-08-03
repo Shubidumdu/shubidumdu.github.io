@@ -713,7 +713,7 @@ fn fragmentMain(in: VSOutput) -> @location(0) vec4f {
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"
-  src="https://shubidumdu.github.io/sketchbook/pages/dust"
+  src="https://blog.shubidumdu.com/sketchbook/pages/dust"
 >
 </iframe>
 

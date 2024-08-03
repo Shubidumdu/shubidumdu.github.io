@@ -19,7 +19,7 @@ const PROJECTS: ProjectCardProps[] = [
     image: '/projects/hwanseheedam.png',
     tags: ['Game'],
     createdAt: '2023',
-    href: 'https://shubidumdu.github.io/hwanseheedam/',
+    href: 'https://blog.shubidumdu.com/hwanseheedam/',
   },
   {
     title: 'Dice 3D',
@@ -27,7 +27,7 @@ const PROJECTS: ProjectCardProps[] = [
     image: '/projects/dice-3d.png',
     tags: ['Toy'],
     createdAt: '2023',
-    href: 'https://shubidumdu.github.io/dice-3d/',
+    href: 'https://blog.shubidumdu.com/dice-3d/',
   },
   {
     title: 'Finn: the Little Collector',
@@ -51,27 +51,25 @@ const PROJECTS: ProjectCardProps[] = [
     image: '/projects/hyper-focus-time.png',
     tags: ['Tool'],
     createdAt: '2020',
-    href: 'https://shubidumdu.github.io/hyper-focus-time/',
+    href: 'https://blog.shubidumdu.com/hyper-focus-time/',
   },
 ];
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shubidumdu.github.io/'),
+  metadataBase: new URL('https://blog.shubidumdu.com/'),
   title: "Shubidumdu's Projects",
-  description:
-    '기업 아래 진행한 것들을 제외하고, 지금껏 개인적으로 진행한 프로젝트들의 모음입니다.',
+  description: '개인적으로 진행한 프로젝트들의 모음입니다.',
   authors: [
     {
       name: 'Shubidumdu',
-      url: 'https://github.com/Shubidumdu',
+      url: 'https://studio.shubidumdu.com/',
     },
   ],
   colorScheme: 'light',
   keywords: ['Shubidumdu', 'Devlog', 'Blog', '개발 블로그', '개발', '블로그'],
   openGraph: {
     title: "Shubidumdu's Projects",
-    description:
-      '기업 아래 진행한 것들을 제외하고, 지금껏 개인적으로 진행한 프로젝트들의 모음입니다.',
+    description: '개인적으로 진행한 프로젝트들의 모음입니다.',
     images: './ogImage.png',
   },
 };

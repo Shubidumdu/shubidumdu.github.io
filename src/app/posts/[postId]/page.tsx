@@ -42,21 +42,24 @@ export const generateMetadata = async ({
 }: PageProps): Promise<Metadata> => {
   const { postId } = params;
   const post = await getPost(postId);
+  const canonical = `https://blog.shubidumdu.com/posts/${postId}/`;
 
   return {
-    metadataBase: new URL('https://shubidumdu.github.io/'),
+    metadataBase: new URL('https://blog.shubidumdu.com/'),
     title: post.attributes.title,
     description: post.attributes.desc,
+    alternates: {
+      canonical,
+    },
     authors: [
       {
         name: 'Shubidumdu',
-        url: 'https://github.com/Shubidumdu',
+        url: 'https://studio.shubidumdu.com/',
       },
     ],
     colorScheme: 'light',
     keywords: [
       'Shubidumdu',
-      'Devlog',
       'Blog',
       '개발 블로그',
       '개발',

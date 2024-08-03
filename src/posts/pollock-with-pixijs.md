@@ -249,11 +249,11 @@ time += 1 / 48;
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"
-  src="https://shubidumdu.github.io/sketchbook/pages/pollock"
+  src="https://blog.shubidumdu.com/sketchbook/pages/pollock"
 >
 </iframe><br>
 
-우측 하단의 `Change Seed`를 통해 시드값을 변경하여 임의의 결과를 얻어볼 수 있다. 어떤 숫자를 넣었을 때가 제법 아름다운 결과를 만들어내는지 찾아보는 것도 꽤 재밌다. `iframe`의 크기가 좀 작아 [새 창으로 보는 것](https://shubidumdu.github.io/sketchbook/pages/pollock/)을 추천한다.
+우측 하단의 `Change Seed`를 통해 시드값을 변경하여 임의의 결과를 얻어볼 수 있다. 어떤 숫자를 넣었을 때가 제법 아름다운 결과를 만들어내는지 찾아보는 것도 꽤 재밌다. `iframe`의 크기가 좀 작아 [새 창으로 보는 것](https://blog.shubidumdu.com/sketchbook/pages/pollock/)을 추천한다.
 
 ## 마치며
 

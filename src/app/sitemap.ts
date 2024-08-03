@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { resolve as resolvePath } from 'path';
 import { readdir, stat } from 'fs/promises';
 
-const SITE_URL = 'https://shubidumdu.github.io';
+const SITE_URL = 'https://blog.shubidumdu.com';
 
 const postPath = resolvePath(process.cwd(), 'src/posts');
 
@@ -30,13 +30,13 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     {
       url: SITE_URL,
       lastModified: new Date(),
-      changeFrequency: 'daily',
+      changeFrequency: 'weekly',
       priority: 0.5,
     },
     ...posts.map((post) => ({
       url: post.loc,
       lastModified: post.lastModified,
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'monthly' as const,
       priority: 0.5,
     })),
   ];

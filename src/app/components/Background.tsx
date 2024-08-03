@@ -1,6 +1,6 @@
 type BackgroundType = 'ocean' | 'cloud' | 'bunny' | 'pollock';
 
-const IFRAME_BASE_URL = 'https://shubidumdu.github.io/sketchbook/pages/';
+const IFRAME_BASE_URL = 'https://blog.shubidumdu.com/sketchbook/pages/';
 
 type BackgroundProps = {
   type?: BackgroundType;

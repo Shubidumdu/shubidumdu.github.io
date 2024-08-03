@@ -2,14 +2,14 @@ import { redirect } from 'next/navigation';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shubidumdu.github.io/'),
+  metadataBase: new URL('https://blog.shubidumdu.com/'),
   title: 'Shubidumdu',
   description:
     '레트로, 신스팝, 디스코, 호러 따위를 좋아하는 프론트엔드 개발자 Shubidumdu입니다.',
   authors: [
     {
       name: 'Shubidumdu',
-      url: 'https://github.com/Shubidumdu',
+      url: 'https://studio.shubidumdu.com/',
     },
   ],
   colorScheme: 'light',

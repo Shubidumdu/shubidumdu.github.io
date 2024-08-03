@@ -35,18 +35,20 @@ const getPosts = async () => {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shubidumdu.github.io/'),
+  metadataBase: new URL('https://blog.shubidumdu.com/'),
+  alternates: {
+    canonical: 'https://blog.shubidumdu.com/',
+  },
   title: "Shubidumdu's Posts",
   description:
     '개발 중 마주친 문제 및 그에 대한 해결과, 어떤 것의 구현에 대한 과정을 기록합니다.',
   authors: [
     {
       name: 'Shubidumdu',
-      url: 'https://github.com/Shubidumdu',
+      url: 'https://studio.shubidumdu.com/',
     },
   ],
   colorScheme: 'light',
-  keywords: ['Shubidumdu', 'Devlog', 'Blog', '개발 블로그', '개발', '블로그'],
   openGraph: {
     title: "Shubidumdu's Posts",
     description:

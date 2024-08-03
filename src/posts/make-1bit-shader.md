@@ -298,7 +298,7 @@ if(edgeDepth>depthThreshold){
 
 ## 마치며
 
-완성된 내용은 아래 또는 [여기](https://shubidumdu.github.io/sketchbook/pages/1bit-shader/)에서 확인해볼 수 있다. 이용자가 임의로 메인/서브 컬러를 지정하여 꽤 독특한 느낌도 내볼 수 있다.
+완성된 내용은 아래 또는 [여기](https://blog.shubidumdu.com/sketchbook/pages/1bit-shader/)에서 확인해볼 수 있다. 이용자가 임의로 메인/서브 컬러를 지정하여 꽤 독특한 느낌도 내볼 수 있다.
 
 <iframe
   id="Dust"
@@ -307,7 +307,7 @@ if(edgeDepth>depthThreshold){
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"
-  src="https://shubidumdu.github.io/sketchbook/pages/1bit-shader"
+  src="https://blog.shubidumdu.com/sketchbook/pages/1bit-shader"
 >
 </iframe><br>
 

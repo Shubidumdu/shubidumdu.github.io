@@ -226,7 +226,7 @@ vec3 specular = prefilteredColor * (F * brdf.x + brdf.y);
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"
-  src="https://shubidumdu.github.io/sketchbook/pages/pbr/"
+  src="https://blog.shubidumdu.com/sketchbook/pages/pbr/"
 >
 </iframe><br>
 

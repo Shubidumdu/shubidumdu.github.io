@@ -213,11 +213,11 @@ engine.runRenderLoop(() => {
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"
-  src="https://shubidumdu.github.io/sketchbook/pages/spinner"
+  src="https://blog.shubidumdu.com/sketchbook/pages/spinner"
 >
 </iframe><br>
 
-<a href="https://shubidumdu.github.io/sketchbook/pages/spinner" target="_blank" style="display:block;text-align:center;">새 창에서 열기</a>
+<a href="https://blog.shubidumdu.com/sketchbook/pages/spinner" target="_blank" style="display:block;text-align:center;">새 창에서 열기</a>
 
 ## 마치며
 
