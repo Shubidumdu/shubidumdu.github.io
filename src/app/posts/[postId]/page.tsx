@@ -42,7 +42,7 @@ export const generateMetadata = async ({
 }: PageProps): Promise<Metadata> => {
   const { postId } = params;
   const post = await getPost(postId);
-  const canonical = `https://blog.shubidumdu.com/posts/${postId}/`;
+  const canonical = `https://blog.shubidumdu.com/posts/${postId}`;
 
   return {
     metadataBase: new URL('https://blog.shubidumdu.com/'),
