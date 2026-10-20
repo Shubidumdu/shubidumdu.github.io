@@ -247,7 +247,7 @@ gl_Position = worldViewProjection * vec4(
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"
-  src="https://blog.shubidumdu.com/sketchbook/pages/visualizer/"
+  src="https://shubidumdu.github.io/sketchbook/pages/visualizer/"
 >
 </iframe><br>
 

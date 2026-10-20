@@ -1,12 +1,12 @@
-type BackgroundType = 'ocean' | 'cloud' | 'bunny' | 'pollock';
+type BackgroundType = "ocean" | "cloud" | "bunny" | "pollock";
 
-const IFRAME_BASE_URL = 'https://blog.shubidumdu.com/sketchbook/pages/';
+const IFRAME_BASE_URL = "https://shubidumdu.github.io/sketchbook/pages/";
 
 type BackgroundProps = {
   type?: BackgroundType;
 };
 
-const Background = ({ type = 'ocean' }: BackgroundProps) => {
+const Background = ({ type = "ocean" }: BackgroundProps) => {
   return (
     <iframe
       id="background"

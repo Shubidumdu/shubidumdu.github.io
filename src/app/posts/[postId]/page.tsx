@@ -1,12 +1,12 @@
-import React from 'react';
-import fs, { readdir } from 'fs';
-import { resolve as resolvePath } from 'path';
-import fm, { type FrontMatterResult } from 'front-matter';
-import Post from '@/app/components/Post';
-import TopBar from '@/app/components/TopBar';
-import { Metadata } from 'next';
-import Comment from '@/app/components/Comment';
-import Background from '@/app/components/Background';
+import React from "react";
+import fs, { readdir } from "fs";
+import { resolve as resolvePath } from "path";
+import fm, { type FrontMatterResult } from "front-matter";
+import Post from "@/app/components/Post";
+import TopBar from "@/app/components/TopBar";
+import { Metadata } from "next";
+import Comment from "@/app/components/Comment";
+import Background from "@/app/components/Background";
 
 type PageProps = {
   params: {
@@ -28,24 +28,24 @@ type PostPageStaticParams = {
 
 export const generateStaticParams = () =>
   new Promise<PostPageStaticParams>((resolve) => {
-    readdir(resolvePath(process.cwd(), 'src/posts'), (err, files) => {
-      const postNames = files.map((file) => file.split('.')[0]);
+    readdir(resolvePath(process.cwd(), "src/posts"), (err, files) => {
+      const postNames = files.map((file) => file.split(".")[0]);
       const postIds = postNames.map((postId) => ({ postId }));
       resolve(postIds);
     });
   });
 
-const BASE_URL = process.env.BASE || '';
+const BASE_URL = process.env.BASE || "";
 
 export const generateMetadata = async ({
   params,
 }: PageProps): Promise<Metadata> => {
   const { postId } = params;
   const post = await getPost(postId);
-  const canonical = `https://blog.shubidumdu.com/posts/${postId}`;
+  const canonical = `https://shubidumdu.github.io/posts/${postId}`;
 
   return {
-    metadataBase: new URL('https://blog.shubidumdu.com/'),
+    metadataBase: new URL("https://shubidumdu.github.io/"),
     title: post.attributes.title,
     description: post.attributes.desc,
     alternates: {
@@ -53,24 +53,24 @@ export const generateMetadata = async ({
     },
     authors: [
       {
-        name: 'Shubidumdu',
-        url: 'https://studio.shubidumdu.com/',
+        name: "Shubidumdu",
+        url: "https://studio.shubidumdu.com/",
       },
     ],
-    colorScheme: 'light',
+    colorScheme: "light",
     keywords: [
-      'Shubidumdu',
-      'Blog',
-      '개발 블로그',
-      '개발',
-      '블로그',
+      "Shubidumdu",
+      "Blog",
+      "개발 블로그",
+      "개발",
+      "블로그",
       ...post.attributes.tags,
     ],
     openGraph: {
       title: post.attributes.title,
       description: post.attributes.desc,
-      type: 'article',
-      countryName: 'KR',
+      type: "article",
+      countryName: "KR",
       images: post.attributes.image,
     },
   };
@@ -79,7 +79,7 @@ export const generateMetadata = async ({
 const getPost = (postId: string) =>
   new Promise<FrontMatterResult<MdAttributes>>((resolve) => {
     const file = resolvePath(process.cwd(), `src/posts/${postId}.md`);
-    fs.readFile(file, 'utf-8', (err, data) => {
+    fs.readFile(file, "utf-8", (err, data) => {
       const content = fm<MdAttributes>(data);
       resolve(content);
     });

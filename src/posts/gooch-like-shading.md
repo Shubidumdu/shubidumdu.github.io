@@ -224,7 +224,7 @@ void main(){
   width="800"
   height="600"
   style="margin:0 auto; max-width: 100%;"
-  src="https://blog.shubidumdu.com/sketchbook/pages/gooch-like/"
+  src="https://shubidumdu.github.io/sketchbook/pages/gooch-like/"
 >
 </iframe><br>
 
